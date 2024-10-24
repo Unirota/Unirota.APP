@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppService from './src/services/AppService'
 import LoginPage from './src/ui/Organisms/Login';
 import HomePage from './src/ui/Organisms/Home';
+import ProfilePage from './src/ui/Organisms/Profile';
 const Stack = createNativeStackNavigator();
 
 export default class App extends Component {
@@ -35,7 +36,7 @@ export default class App extends Component {
       );
     }
 
-    let initialRoute = isAuthorized ? "HomePage" : "LoginPage";
+    let initialRoute = isAuthorized ? "HomePage" : "ProfilePage";
     return (
       <FontProvider>
         <NavigationContainer>
@@ -48,6 +49,11 @@ export default class App extends Component {
             <Stack.Screen
               name="HomePage"
               component={HomePage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ProfilePage"
+              component={ProfilePage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

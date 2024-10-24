@@ -18,13 +18,15 @@
     "expo": "~51.0.28",
     "expo-app-loading": "^2.1.1",
     "expo-font": "~12.0.10",
+    "expo-linear-gradient": "~13.0.2",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.5",
     "react-native-alert-async": "^1.0.5",
-    "react-native-web": "~0.19.10",
-    "expo-linear-gradient": "~13.0.2"
+    "react-native-svg": "^15.8.0",
+    "react-native-svg-transformer": "^1.5.0",
+    "react-native-web": "~0.19.10"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
