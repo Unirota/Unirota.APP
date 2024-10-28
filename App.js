@@ -1,42 +1,42 @@
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native'
 import { Component } from 'react'
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { FontProvider } from './src/provider/FontProvider';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { FontProvider } from './src/provider/FontProvider'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import AppService from './src/services/AppService'
-import LoginPage from './src/ui/Organisms/Login';
-import HomePage from './src/ui/Organisms/Home';
-import ProfilePage from './src/ui/Organisms/Profile';
-const Stack = createNativeStackNavigator();
+import LoginPage from './src/ui/Organisms/Login'
+import HomePage from './src/ui/Organisms/Home'
+import ProfilePage from './src/ui/Organisms/Profile'
+const Stack = createNativeStackNavigator()
 
 export default class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       isAuthorized: null, // Começa nulo para indicar o loading
-    };
+    }
   }
 
   async componentDidMount() {
-    const email = "front@email.com"
-    const password = "123456"
-    const isAuthorized = await AppService.Login(email, password);
-    this.setState({ isAuthorized });
+    const email = 'front@email.com'
+    const password = '123456'
+    const isAuthorized = await AppService.Login(email, password)
+    this.setState({ isAuthorized })
   }
 
   render() {
-    const { isAuthorized } = this.state;
+    const { isAuthorized } = this.state
 
     if (isAuthorized === null) {
       return (
         <View style={styles.loading}>
           <ActivityIndicator size="large" color="#00BBAA" />
         </View>
-      );
+      )
     }
 
-    let initialRoute = isAuthorized ? "HomePage" : "ProfilePage";
+    let initialRoute = isAuthorized ? 'HomePage' : 'ProfilePage'
     return (
       <FontProvider>
         <NavigationContainer>
@@ -59,7 +59,7 @@ export default class App extends Component {
           </Stack.Navigator>
         </NavigationContainer>
       </FontProvider>
-    );
+    )
   }
 }
 
@@ -67,5 +67,5 @@ const styles = StyleSheet.create({
   loading: {
     flex: 1,
     justifyContent: 'center',
-  }
-});
+  },
+})

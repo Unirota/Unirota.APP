@@ -1,5 +1,5 @@
 import axios from 'axios'
-let baseUrl = 'http://localhost:5239/api'
+let baseUrl = 'http://10.0.2.2:5239/api'
 let ApiUnirota = axios.create({
   baseURL: baseUrl,
   timeout: 13000,

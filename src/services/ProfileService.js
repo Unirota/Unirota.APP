@@ -5,31 +5,21 @@ export default new (class ProfileService {
         id: '1',
         icon: 'people',
         title: 'Criar grupo de carona',
-        imageUrl: require('../../assets/images/unicesumarImage.jpeg'),
       },
       {
         id: '2',
         icon: 'car',
         title: 'Corridas',
-        imageUrl: require('../../assets/images/unicesumarImage.jpeg'),
       },
       {
         id: '3',
         icon: 'person',
         title: 'Minhas informações',
-        imageUrl: require('../../assets/images/unicesumarImage.jpeg'),
       },
-      //   {
-      //     id: '4',
-      //     icon: 'settings',
-      //     title: 'Configurações',
-      //     imageUrl: require('../../assets/images/unicesumarImage.jpeg'),
-      //   },
       {
-        id: '5',
+        id: '4',
         icon: 'help-circle',
         title: 'FAQ',
-        imageUrl: require('../../assets/images/unicesumarImage.jpeg'),
       },
     ]
   }
