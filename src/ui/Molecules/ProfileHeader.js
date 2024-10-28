@@ -12,7 +12,7 @@ export default class ProfileHeader extends Component {
       <View>
         <View style={styles.container}>
           <ProfileAvatar
-            data={require('../../../assets/images/unicesumarImage.jpeg')}
+            data={require('../../../assets/images/avatar.png')}
           />
           <View style={styles.profileContentContainer}>
             <ProfileBadge />

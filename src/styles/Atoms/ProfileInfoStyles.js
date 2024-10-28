@@ -5,6 +5,7 @@ export default StyleSheet.create({
         color: '#FFFFFF',
         opacity: 0.8,
         marginTop: 5,
-        fontSize: 12
+        fontSize: 12,
+        fontWeight: '500'
     }
 })

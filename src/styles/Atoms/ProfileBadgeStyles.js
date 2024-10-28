@@ -7,11 +7,12 @@ export default StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 16,
     marginTop: 8,
-    width: 90,
+    width: 79,
   },
   text: {
     color: '#FFFFFF',
     fontSize: 12,
     textAlign: 'center',
+    fontFamily: 'Inter',
   },
 })
