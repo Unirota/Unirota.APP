@@ -12,12 +12,12 @@ export default class ProfileHeader extends Component {
       <View>
         <View style={styles.container}>
           <ProfileAvatar
-            data={require('../../../assets/images/avatar.png')}
+            data={require('../../../assets/images/user_avatar.png')}
           />
           <View style={styles.profileContentContainer}>
             <ProfileBadge />
-            <ProfileName name="João Pedro" />
-            <ProfileInfo years={2} rides={50} />
+            <ProfileName name="Maria Silva" />
+            <ProfileInfo years={1} rides={23} />
           </View>
         </View>
       </View>

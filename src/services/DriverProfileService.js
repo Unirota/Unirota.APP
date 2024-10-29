@@ -1,10 +1,10 @@
-export default new (class ProfileService {
+export default new (class DriverProfileService {
   getMenuItems() {
     return [
       {
         id: '1',
         icon: 'people',
-        title: 'Quero ser motorista',
+        title: 'Criar grupo de carona',
       },
       {
         id: '2',
