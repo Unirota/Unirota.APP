@@ -7,7 +7,7 @@ export default StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 16,
     marginTop: 8,
-    width: 79,
+    width: 90,
   },
   text: {
     color: '#FFFFFF',
