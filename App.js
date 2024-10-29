@@ -21,7 +21,7 @@ export default class App extends Component {
   }
 
   async componentDidMount() {
-    const email = 'jose@unirota.com'
+    const email = 'front@email.com'
     const password = '123456'
     const isAuthorized = await AppService.Login(email, password)
     this.setState({ isAuthorized })
@@ -38,7 +38,7 @@ export default class App extends Component {
       )
     }
 
-    let initialRoute = isAuthorized ? 'HomePage' : 'ProfilePage'
+    let initialRoute = isAuthorized ? 'HomePage' : 'DriverProfilePage'
     return (
       <FontProvider>
         <NavigationContainer>
