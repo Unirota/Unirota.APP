@@ -18,7 +18,6 @@ export default class HomePage extends Component {
                     <UnirotaTitle />
                     <CardDestiny />
                     <CardHomeGroup />
-                    <ButtonLogin/>
                 </View>
                 <NavigationFooter />
             </LinearGradient>

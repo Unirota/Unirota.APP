@@ -1,10 +1,6 @@
-<<<<<<< Updated upstream
 import axios from 'axios'
-let baseUrl = 'http://10.0.2.2:5239/api'
-=======
-import axios from "axios"
-let baseUrl = "http://10.0.2.2:5239/api/"
->>>>>>> Stashed changes
+let baseUrl = 'http://10.0.2.2:8080/api'
+
 let ApiUnirota = axios.create({
   baseURL: baseUrl,
   timeout: 13000,
