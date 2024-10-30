@@ -10,64 +10,62 @@ import DriverProfilePage from './src/ui/Organisms/DriverProfile'
 import ProfilePage from './src/ui/Organisms/Profile'
 const Stack = createNativeStackNavigator();
 
-export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isAuthorized: null, // Começa nulo para indicar o loading
+  export default class App extends Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        isAuthorized: null, // Começa nulo para indicar o loading
+      }
     }
-  }
 
-  async componentDidMount() {
-    const email = 'front@email.com'
-    const password = '123456'
-    const isAuthorized = await AppService.Login(email, password)
-    this.setState({ isAuthorized })
-  }
+    async componentDidMount() {
+      const isAuthorized = await AppService.AutomaticLogin()
+      this.setState({ isAuthorized })
+    }
 
-  render() {
-    const { isAuthorized } = this.state
+    render() {
+      const { isAuthorized } = this.state
 
-    if (isAuthorized === null) {
+      if (isAuthorized === null) {
+        return (
+          <View style={styles.loading}>
+            <ActivityIndicator size="large" color="#00BBAA" />
+          </View>
+        )
+      }
+
+      let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
+
       return (
-        <View style={styles.loading}>
-          <ActivityIndicator size="large" color="#00BBAA" />
-        </View>
+        <FontProvider>
+          <NavigationContainer>
+            <Stack.Navigator initialRouteName={initialRoute}>
+              <Stack.Screen
+                name="LoginPage"
+                component={LoginPage}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="HomePage"
+                component={HomePage}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="ProfilePage"
+                component={ProfilePage}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="DriverProfilePage"
+                component={DriverProfilePage}
+                options={{ headerShown: false }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </FontProvider>
       )
     }
-
-    let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
-
-    return (
-      <FontProvider>
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName={initialRoute}>
-            <Stack.Screen
-              name="LoginPage"
-              component={LoginPage}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="HomePage"
-              component={HomePage}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="ProfilePage"
-              component={ProfilePage}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="DriverProfilePage"
-              component={DriverProfilePage}
-              options={{ headerShown: false }}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </FontProvider>
-    )
   }
-}
 
 const styles = StyleSheet.create({
   loading: {
