@@ -3,14 +3,12 @@ import { Component } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { FontProvider } from './src/provider/FontProvider'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import AppService from './src/services/AppService'
 import LoginPage from './src/ui/Organisms/Login'
 import HomePage from './src/ui/Organisms/Home'
 import DriverProfilePage from './src/ui/Organisms/DriverProfile'
 import ProfilePage from './src/ui/Organisms/Profile'
-
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 export default class App extends Component {
   constructor(props) {
@@ -38,7 +36,8 @@ export default class App extends Component {
       )
     }
 
-    let initialRoute = isAuthorized ? 'HomePage' : 'DriverProfilePage'
+    let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
+
     return (
       <FontProvider>
         <NavigationContainer>
@@ -46,7 +45,7 @@ export default class App extends Component {
             <Stack.Screen
               name="LoginPage"
               component={LoginPage}
-              options={{ headerShown: true }}
+              options={{ headerShown: false }}
             />
             <Stack.Screen
               name="HomePage"
@@ -74,5 +73,6 @@ const styles = StyleSheet.create({
   loading: {
     flex: 1,
     justifyContent: 'center',
+
   },
 })
