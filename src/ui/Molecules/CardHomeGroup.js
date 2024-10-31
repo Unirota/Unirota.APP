@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, ScrollView } from 'react-native'
 import CardHomeGroupStyle from '../../styles/Molecules/CardHomeGroupStyle'
 import CardHomeGroupTitle from '../Atoms/CardHomeGroupTitle'
 
@@ -33,6 +33,7 @@ export default class CardHomeGroup extends Component {
                 <CardHomeGroupTitle />
                 <FlatList
                     data={grupoData}
+                    style={CardHomeGroupStyle.list}
                     renderItem={({ item }) => (
                         <View style={CardHomeGroupStyle.groupContainer}>
                             <Text style={CardHomeGroupStyle.font}>{item.nome}</Text>
@@ -45,6 +46,7 @@ export default class CardHomeGroup extends Component {
 
                     )}
                     keyExtractor={item => item.id}
+                    scrollEnabled={true}
                 />
             </View>
         )

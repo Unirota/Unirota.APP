@@ -2,11 +2,11 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     container:{
-        height: 320,
         width: 320,
         backgroundColor: '#FFFFFF',
         alignSelf: 'center',
-        marginTop: 16,
+        marginTop: 32,
+        marginBottom: 32,
         borderRadius: 16,
         paddingLeft: 12,
         paddingRight: 12
@@ -14,15 +14,12 @@ export default StyleSheet.create({
     groupContainer: {
         backgroundColor: '#D9D9D9',
         width: 280,
-        height: 100,
         marginBottom: 12,
         borderRadius: 12,
         borderColor: '#C3C3C3',
         borderWidth: 1,
         padding: 16,
         alignSelf: 'center',
-        flexDirection: 'column',
-        justifyContent: 'space-evenly'
     },
     groupTextLast: {
         width: '100%',
@@ -31,5 +28,8 @@ export default StyleSheet.create({
     },
     font: {
         fontSize: 12
+    },
+    list: {
+        padding: 8,
     }
 })

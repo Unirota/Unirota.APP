@@ -4,6 +4,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 16,
+    marginBottom: 32
   },
   commonText: {
     fontSize: 20,

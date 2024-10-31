@@ -4,7 +4,8 @@ export default StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 16
+        marginBottom: 16,
+        marginTop: 8
     },
     commonText: {
         margin: 2,
