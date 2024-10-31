@@ -4,12 +4,13 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    marginLeft: 12
+    marginLeft: 2,
+    marginBottom: 36
   },
   groupName: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#000'
+    color: '#000',
   },
   institutionContainer: {
     flexDirection: 'row',

@@ -11,7 +11,7 @@ export default new (class SearchGroupService {
         {
           name: 'Grupo Beta',
           institution: 'UEM',
-          rating: 4.5,
+          rating: 3.5,
           time: '9:30',
           onInfoPress: () => console.log('Info pressed for Grupo Beta')
         }

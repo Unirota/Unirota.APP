@@ -105,6 +105,28 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems:  'center',
     gap: 4,
-
-  }
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fundo semi-transparente
+  },
+  modalContent: {
+    width: '100%',
+    height: '65%',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 20,
+    alignItems: 'center',
+    borderRadius: 25
+  },
+  modalTitle: {
+    fontSize: 20,
+    marginBottom: 20,
+  },
+  closeButton: {
+    marginTop: 20,
+    color: '#007BFF', // Cor do botão de fechar
+  },
 })

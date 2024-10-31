@@ -8,6 +8,6 @@ export default StyleSheet.create({
   ratingText: {
     fontSize: 14,
     color: '#000',
-    marginLeft: 4
+    marginLeft: 6
   }
 })
