@@ -2,13 +2,13 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   gradient: {
-    borderRadius: 16, // ajuste conforme necessário
-    padding: 10, // ajuste conforme necessário
+    borderRadius: 16, 
+    padding: 10,
   },
   button: {
     borderRadius: 30,
     marginRight: 8,
-    width: 80
+    width: 90
   },
   buttonText: {
     color: '#FFF',

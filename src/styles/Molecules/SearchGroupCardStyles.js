@@ -11,7 +11,6 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     shadowColor: '#000',
-    backgroundColor: 'cyan',
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3
@@ -19,7 +18,6 @@ export default StyleSheet.create({
   leftContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    // backgroundColor: 'red'
   },
   infoContainer: {
     marginLeft: 12,
@@ -27,6 +25,5 @@ export default StyleSheet.create({
   rightContent: {
     alignItems: 'flex-end',
     gap: 8,
-    // backgroundColor: 'red'
   }
 })
