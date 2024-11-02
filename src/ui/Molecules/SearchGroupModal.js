@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { View, TouchableOpacity, Text, Modal } from 'react-native'
+import { View, TouchableOpacity, Text, Modal, Platform } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import DateTimePicker from '@react-native-community/datetimepicker'
 import StarRating from 'react-native-star-rating-widget'
@@ -13,7 +13,13 @@ export default class SearchGroupModal extends Component {
     showTimePicker: false,
     selectedDestination: '',
     rating: 0,
+    groups: [],
   };
+
+  componentDidMount() {
+    const groups = SearchGroupService.getGroups();
+    this.setState({ groups });
+  }
 
   destinations = [
     'UEM',
@@ -24,10 +30,11 @@ export default class SearchGroupModal extends Component {
   ];
 
   onTimeChange = (event, selectedTime) => {
-    this.setState({ showTimePicker: Platform.OS === 'ios' });
-    if (selectedTime) {
-      this.setState({ startTime: selectedTime });
-    }
+    const currentTime = selectedTime || this.state.startTime;
+    this.setState({ 
+      showTimePicker: Platform.OS === 'ios',
+      startTime: currentTime
+    });
   };
 
   clearFilters = () => {
@@ -35,27 +42,55 @@ export default class SearchGroupModal extends Component {
       startTime: new Date(),
       selectedDestination: '',
       rating: 0,
+    }, () => {
+      
+      const allGroups = SearchGroupService.getGroups();
+      this.setState({ groups: allGroups });
+      this.props.onSearch(allGroups);
     });
+  };
+
+  formatTimeForFilter = (date) => {
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${hours}:${minutes}`;
   };
 
   searchGroups = () => {
     const { startTime, selectedDestination, rating } = this.state;
-    const filters = {
-      startTime: startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }),
-      destination: selectedDestination,
-      rating: rating,
-    };
 
+    
+    const formattedTime = this.formatTimeForFilter(startTime);
+
+
+    const filters = {};
+    
+    if (formattedTime) {
+      filters.startTime = formattedTime;
+    }
+    
+    if (selectedDestination) {
+      filters.destination = selectedDestination;
+    }
+    
+    if (rating > 0) {
+      filters.rating = rating;
+    }
+
+    
     const filteredGroups = SearchGroupService.getGroups(filters);
-    this.setState({ filteredGroups }, () => {
-      // Aqui você pode chamar uma função para atualizar a lista de grupos na tela principal
-      this.props.onSearch(filteredGroups);
-      this.props.onClose(); // Fecha o modal após a pesquisa
-    });
+    
+    
+    this.setState({ groups: filteredGroups });
+
+    
+    this.props.onSearch(filteredGroups);
+    this.props.onClose();
   };
 
   render() {
     const { isVisible, onClose } = this.props;
+    const { startTime, showTimePicker, selectedDestination, rating } = this.state;
 
     return (
       <Modal
@@ -67,7 +102,7 @@ export default class SearchGroupModal extends Component {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <TouchableOpacity onPress={onClose} style={styles.closeButtonContainer}>
-              <Icon name='close' size={20} color='#999'/>
+              <Icon name="close" size={20} color="#999"/>
             </TouchableOpacity>
             <Text style={styles.modalTitle}>Filtros</Text>
 
@@ -77,11 +112,13 @@ export default class SearchGroupModal extends Component {
                 style={styles.filterInput}
                 onPress={() => this.setState({ showTimePicker: true })}
               >
-                <Text>{this.state.startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })}</Text>
+                <Text>
+                  {this.formatTimeForFilter(startTime)}
+                </Text>
               </TouchableOpacity>
-              {this.state.showTimePicker && (
+              {showTimePicker && (
                 <DateTimePicker
-                  value={this.state.startTime}
+                  value={startTime}
                   mode="time"
                   is24Hour={true}
                   display="default"
@@ -94,7 +131,7 @@ export default class SearchGroupModal extends Component {
               <Text style={styles.filterLabel}>Destino:</Text>
               <View style={styles.pickerContainer}>
                 <Picker
-                  selectedValue={this.state.selectedDestination}
+                  selectedValue={selectedDestination}
                   onValueChange={(itemValue) => 
                     this.setState({ selectedDestination: itemValue })
                   }
@@ -115,7 +152,7 @@ export default class SearchGroupModal extends Component {
             <View style={styles.noteSection}>
               <Text style={styles.filterLabel}>Nota:</Text>
               <StarRating
-                rating={this.state.rating}
+                rating={rating}
                 onChange={(rating) => this.setState({ rating })}
                 maxStars={5}
                 starSize={30}
@@ -126,12 +163,18 @@ export default class SearchGroupModal extends Component {
 
             <View style={styles.buttonContainer}>
               <View style={styles.clearFiltersButtonContainer}>
-                <TouchableOpacity style={styles.clearFiltersButton} onPress={this.clearFilters}>
+                <TouchableOpacity 
+                  style={styles.clearFiltersButton} 
+                  onPress={this.clearFilters}
+                >
                   <Text style={styles.clearFiltersButtonText}>Limpar Filtros</Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.searchButtonContainer}>
-                <TouchableOpacity style={styles.searchButton} onPress={this.searchGroups}>
+                <TouchableOpacity 
+                  style={styles.searchButton} 
+                  onPress={this.searchGroups}
+                >
                   <Text style={styles.searchButtonText}>Pesquisar</Text>
                 </TouchableOpacity>
               </View>

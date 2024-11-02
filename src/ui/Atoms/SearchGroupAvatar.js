@@ -16,7 +16,7 @@ export default class GroupAvatar extends Component {
         <View style={styles.ratingContainer}>
           <GroupRating rating={rating} />
         </View>
-    </View>
+      </View>
     )
   }
 }

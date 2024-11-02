@@ -13,7 +13,7 @@ export default class SearchGroupCard extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.leftContent}>
-          <GroupAvatar />
+          <GroupAvatar rating={group.rating} /> 
           <View style={styles.infoContainer}>
             <GroupInfo name={group.name} institution={group.institution} />
           </View>

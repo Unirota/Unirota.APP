@@ -9,14 +9,27 @@ import styles from '../../../styles/Organisms/Profile/styles'
 import SearchGroupService from '../../../services/SearchGroupService'
 
 export default class SearchGroupPage extends Component {
+  state = {
+    groups: []
+  };
+
+  componentDidMount() {
+    const initialGroups = SearchGroupService.getGroups();
+    this.setState({ groups: initialGroups });
+  }
+
+  handleUpdateGroups = (updatedGroups) => {
+    this.setState({ groups: updatedGroups });
+  };
+
   render() {
     return (
       <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
         <View style={styles.container}>
           <UnirotaTitle />
-          <SearchGroupHeader />
+          <SearchGroupHeader onUpdateGroups={this.handleUpdateGroups} />
           <ScrollView style={styles.groupList}>
-            {SearchGroupService.getGroups().map((group, index) => (
+            {this.state.groups.map((group, index) => (
               <GroupCard key={index} group={group} />
             ))}
           </ScrollView>

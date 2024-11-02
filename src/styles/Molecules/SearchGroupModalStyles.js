@@ -29,7 +29,7 @@ export default StyleSheet.create({
   filterSection: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 10
   },
   noteSection: {
     flexDirection: 'row',

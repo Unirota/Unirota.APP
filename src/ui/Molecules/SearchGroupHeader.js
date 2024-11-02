@@ -8,23 +8,30 @@ import SearchGroupService from '../../services/SearchGroupService'
 export default class SearchGroupHeader extends Component {
   state = {
     isModalVisible: false,
-    groups: []
-  };
-
-  componentDidMount() {
-    this.loadGroups(); // Carregue os grupos iniciais
-  }
-
-  loadGroups = () => {
-    const groups = SearchGroupService.getGroups();
-    this.setState({ groups });
+    searchText: '',
   };
 
   handleSearch = (filteredGroups) => {
-    this.setState({ groups: filteredGroups });
-    // Se você precisar passar os grupos filtrados para um componente pai,
-    // você pode fazê-lo aqui, por exemplo:
-    this.props.onGroupsFiltered(filteredGroups);
+    if (this.props.onUpdateGroups) {
+      this.props.onUpdateGroups(filteredGroups);
+    }
+  };
+
+  handleTextSearch = (text) => {
+    this.setState({ searchText: text });
+    
+    if (!text.trim()) {
+      const allGroups = SearchGroupService.getGroups();
+      this.handleSearch(allGroups);
+      return;
+    }
+
+    const filteredGroups = SearchGroupService.getGroups().filter(group => 
+      group.name.toLowerCase().includes(text.toLowerCase()) ||
+      group.institution.toLowerCase().includes(text.toLowerCase())
+    );
+
+    this.handleSearch(filteredGroups);
   };
 
   toggleModal = () => {
@@ -45,6 +52,8 @@ export default class SearchGroupHeader extends Component {
             style={styles.searchInputText}
             placeholder="Pesquisar"
             placeholderTextColor="#999"
+            value={this.state.searchText}
+            onChangeText={this.handleTextSearch}
           />
         </View>
         
