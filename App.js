@@ -8,64 +8,70 @@ import LoginPage from './src/ui/Organisms/Login'
 import HomePage from './src/ui/Organisms/Home'
 import DriverProfilePage from './src/ui/Organisms/DriverProfile'
 import ProfilePage from './src/ui/Organisms/Profile'
+import SearchGroupPage from './src/ui/Organisms/Search'
 const Stack = createNativeStackNavigator();
 
-  export default class App extends Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        isAuthorized: null, // Começa nulo para indicar o loading
-      }
-    }
-
-    async componentDidMount() {
-      const isAuthorized = await AppService.AutomaticLogin()
-      this.setState({ isAuthorized })
-    }
-
-    render() {
-      const { isAuthorized } = this.state
-
-      if (isAuthorized === null) {
-        return (
-          <View style={styles.loading}>
-            <ActivityIndicator size="large" color="#00BBAA" />
-          </View>
-        )
-      }
-
-      let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
-
-      return (
-        <FontProvider>
-          <NavigationContainer>
-            <Stack.Navigator initialRouteName={initialRoute}>
-              <Stack.Screen
-                name="LoginPage"
-                component={LoginPage}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="HomePage"
-                component={HomePage}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="ProfilePage"
-                component={ProfilePage}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="DriverProfilePage"
-                component={DriverProfilePage}
-                options={{ headerShown: false }}
-              />
-            </Stack.Navigator>
-          </NavigationContainer>
-        </FontProvider>
-      )
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isAuthorized: null, // Começa nulo para indicar o loading
     }
   }
+
+  async componentDidMount() {
+    const isAuthorized = await AppService.AutomaticLogin()
+    this.setState({ isAuthorized })
+  }
+
+  render() {
+    const { isAuthorized } = this.state
+
+    if (isAuthorized === null) {
+      return (
+        <View style={styles.loading}>
+          <ActivityIndicator size="large" color="#00BBAA" />
+        </View>
+      )
+    }
+
+    let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
+
+    return (
+      <FontProvider>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName={initialRoute}>
+            <Stack.Screen
+              name="LoginPage"
+              component={LoginPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="HomePage"
+              component={HomePage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ProfilePage"
+              component={ProfilePage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="DriverProfilePage"
+              component={DriverProfilePage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="SearchGroupPage"
+              component={SearchGroupPage}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </FontProvider>
+    )
+  }
+}
 
 const styles = StyleSheet.create({
   loading: {
