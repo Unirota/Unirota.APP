@@ -5,7 +5,6 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 73,
     paddingHorizontal: 14,
     gap: 8
   },
@@ -40,16 +39,15 @@ export default StyleSheet.create({
     height: 39,
     paddingHorizontal: 16,
     justifyContent: 'center',
-    alignItems: 'center',
   },
   filterButtonText: {
     color: '#FFFFFF',
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: '500',
     width: 36,
     height: 15,
     fontFamily: 'Inter',
-    bottom: 1
+    alignSelf: 'center',
   },
   filterContent: {
     flexDirection: 'row',

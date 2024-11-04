@@ -8,4 +8,7 @@ export default StyleSheet.create({
   gradient: {
     flex: 1,
   },
+  groupList: {
+    marginTop: 16
+  }
 })

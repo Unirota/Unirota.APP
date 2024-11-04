@@ -159,10 +159,8 @@ export default class SearchGroupModal extends Component {
               />
             </View>
 
-            <View style={styles.separator} />
-
             <View style={styles.buttonContainer}>
-              <View style={styles.clearFiltersButtonContainer}>
+              <View>
                 <TouchableOpacity 
                   style={styles.clearFiltersButton} 
                   onPress={this.clearFilters}

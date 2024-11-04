@@ -9,17 +9,16 @@ export default StyleSheet.create({
   },
   modalContent: {
     width: '100%',
-    height: '65%',
+    height: '64%',
     backgroundColor: 'white',
-    borderRadius: 25,
-    padding: 20,
-    alignItems: 'center',
+    borderRadius: 24,
+    padding: 32,
   },
   modalTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 20,
-    marginLeft: 10,
+    marginBottom: 24,
+    alignSelf: 'center'
   },
   closeButtonContainer: {
     position: 'absolute',
@@ -28,19 +27,22 @@ export default StyleSheet.create({
   },
   filterSection: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10
+    marginBottom: 10,
+    // borderColor: 'red',
+    // borderWidth: 2,
+    justifyContent: `space-between`
   },
   noteSection: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     marginBottom: 10,
-    marginLeft: -122
   },
   filterLabel: {
     fontSize: 16,
-    marginRight: 10,
-    fontWeight: '500'
+    fontWeight: '500',
+    justifyContent: 'flex-start',
+    alignSelf: 'center',
+    width: '32%'
   },
   filterInput: {
     flex: 1,
@@ -51,19 +53,17 @@ export default StyleSheet.create({
     padding: 10,
   },
   pickerContainer: {
-    flex: 1,
+    flex: 1
   },
   picker: {
-    height: 40,
     borderColor: '#ccc',
     borderWidth: 1,
-    borderRadius: 5,
-    padding: 10,
+    borderRadius: 5
   },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 110,
+    justifyContent: 'space-evenly',
+    marginTop: 32
   },
   searchButtonContainer: {
     marginLeft: 20,
@@ -79,9 +79,6 @@ export default StyleSheet.create({
     fontSize: 16,
     color: '#D9D9D9',
   },
-  clearFiltersButtonContainer: {
-    marginLeft: 20,
-  },
   clearFiltersButton: {
     padding: 10,
     backgroundColor: '#fff',
@@ -96,15 +93,5 @@ export default StyleSheet.create({
   starRatingContainer: {
     flex: 1,
     alignItems: 'flex-end',
-  },
-  separator: {
-    width: '100%',
-    height: 1,
-    backgroundColor: '#1E1E1E',
-    marginTop: 20,
-    marginBottom: 20,
-    opacity: 1,
-    border: 1,
-    borderColor: '#818181'
   }
 })
