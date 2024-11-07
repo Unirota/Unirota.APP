@@ -1,10 +1,11 @@
 import { Component } from 'react'
-import { View, ActivityIndicator } from 'react-native'
+import { View } from 'react-native'
 import ProfileAvatar from '../Atoms/ProfileAvatar'
 import ProfileBadge from '../Atoms/ProfileBadge'
 import ProfileName from '../Atoms/ProfileName'
 import ProfileInfo from '../Atoms/ProfileInfo'
 import styles from '../../styles/Molecules/ProfileHeaderStyles'
+import Loading from '../Atoms/Loading'
 
 export default class ProfileHeader extends Component {
   constructor(props) {
@@ -19,9 +20,7 @@ export default class ProfileHeader extends Component {
 
     if (headerData === null) {
       return (
-        <View>
-          <ActivityIndicator size="large" color="#00BBAA" />
-        </View>
+        <Loading />
       )
     }
 

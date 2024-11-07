@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native'
 import { Component } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -9,6 +8,7 @@ import HomePage from './src/ui/Organisms/Home'
 import DriverProfilePage from './src/ui/Organisms/DriverProfile'
 import ProfilePage from './src/ui/Organisms/Profile'
 import SearchGroupPage from './src/ui/Organisms/Search'
+import Loading from './src/ui/Atoms/Loading'
 const Stack = createNativeStackNavigator();
 
 export default class App extends Component {
@@ -29,13 +29,11 @@ export default class App extends Component {
 
     if (isAuthorized === null) {
       return (
-        <View style={styles.loading}>
-          <ActivityIndicator size="large" color="#00BBAA" />
-        </View>
+        <Loading />
       )
     }
 
-    let initialRoute = isAuthorized ? 'ProfilePage' : "LoginPage"
+    let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
 
     return (
       <FontProvider>
@@ -72,11 +70,3 @@ export default class App extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  loading: {
-    flex: 1,
-    justifyContent: 'center',
-
-  },
-})

@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { StyleSheet, View, ActivityIndicator } from 'react-native'
+import { View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import ProfileHeader from '../../Molecules/ProfileHeader'
 import ProfileMenu from '../../Molecules/ProfileMenu'
@@ -8,6 +8,7 @@ import styles from '../../../styles/Organisms/Profile/styles'
 import UnirotaTitle from '../../Atoms/UnirotaTitle'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import UserService from '../../../services/UserService'
+import Loading from '../../Atoms/Loading'
 
 export default class ProfilePage extends Component {
   constructor(props) {
@@ -36,9 +37,7 @@ export default class ProfilePage extends Component {
     
     if (headerData === null) {
       return (
-        <View style={innerStyles.loading}>
-          <ActivityIndicator size="large" color="#00BBAA" />
-        </View>
+        <Loading />
       )
     }
 
@@ -49,16 +48,8 @@ export default class ProfilePage extends Component {
           <ProfileHeader headerData={ headerData }/>
           <ProfileMenu />
         </View>
-        <NavigationFooter />
+        <NavigationFooter navigation={this.props.navigation}/>
       </LinearGradient>
     )
   }
 }
-
-const innerStyles = StyleSheet.create({
-  loading: {
-    flex: 1,
-    justifyContent: 'center',
-
-  },
-})

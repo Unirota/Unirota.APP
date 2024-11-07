@@ -13,6 +13,7 @@ export default new class AppService {
             await AsyncStorage.setItem('email', email)
             await AsyncStorage.setItem('password', password)
             await AsyncStorage.setItem('userId', response.data.usuario.id.toString())
+            await AsyncStorage.setItem('isUserDriver', response.data.usuario.motorista.toString())
             await AsyncStorage.setItem('token', `Bearer ${response.data.accessToken}`)
             return true
         }).catch(async (error) => {

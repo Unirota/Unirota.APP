@@ -33,7 +33,7 @@ export default class SearchGroupPage extends Component {
               <GroupCard key={index} group={group} />
             ))}
           </ScrollView>
-          <NavigationFooter />
+          <NavigationFooter navigation={this.props.navigation}/>
         </View>
       </LinearGradient>
     )
