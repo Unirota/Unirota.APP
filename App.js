@@ -9,6 +9,7 @@ import DriverProfilePage from './src/ui/Organisms/DriverProfile'
 import ProfilePage from './src/ui/Organisms/Profile'
 import SearchGroupPage from './src/ui/Organisms/Search'
 import Loading from './src/ui/Atoms/Loading'
+import FaqPage from './src/ui/Organisms/Faq'
 const Stack = createNativeStackNavigator();
 
 export default class App extends Component {
@@ -62,6 +63,11 @@ export default class App extends Component {
             <Stack.Screen
               name="SearchGroupPage"
               component={SearchGroupPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="FaqPage"
+              component={FaqPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
