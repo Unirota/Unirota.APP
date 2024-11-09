@@ -26,7 +26,7 @@ export default class HomePage extends Component {
                         keyExtractor={item => item.id}
                         contentContainerStyle={styles.scrollContainer}
                     />
-                <NavigationFooter />
+                <NavigationFooter navigation={this.props.navigation}/>
             </LinearGradient>
         )
     }
