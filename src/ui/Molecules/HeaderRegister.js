@@ -2,8 +2,9 @@ import { Component } from 'react'
 import { View, Text, Image } from 'react-native'
 import UnirotaTitleStyles from '../../styles/Atoms/UnirotaTitleStyles';
 import HeaderLoginStyle from '../../styles/Atoms/HeaderLoginStyle';
+import PhotoUserRegister from '../Atoms/PhotoUserRegister';
 
-export default class HeaderLogin extends Component {
+export default class HeaderRegister extends Component {
     render() {
         const imageUrl = require('./../../../assets/images/carro-azul-icone.png')
         return (
@@ -14,13 +15,13 @@ export default class HeaderLogin extends Component {
                     HeaderLoginStyle.commonTextLogin,
                     UnirotaTitleStyles.whiteText,
                     HeaderLoginStyle.titleLogin]}>
-                    Entrar
+                    Cadastrar
                 </Text>
                 <Text style={[
                     HeaderLoginStyle.commonSubtitleLogin,
                     UnirotaTitleStyles.whiteText,
                     HeaderLoginStyle.subtitleLogin,]}>
-                    Bem vindo de volta!
+                    Bem vindo ao Unirota!
                 </Text>
 
             </View>

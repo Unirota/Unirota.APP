@@ -12,7 +12,7 @@
     "@expo-google-fonts/lexend-exa": "^0.2.3",
     "@expo/metro-runtime": "~3.2.3",
     "@react-native-async-storage/async-storage": "^2.0.0",
-    "@react-native-community/datetimepicker": "^8.2.0",
+    "@react-native-community/datetimepicker": "8.0.1",
     "@react-native-picker/picker": "^2.9.0",
     "@react-native/metro-config": "^0.76.0",
     "@react-navigation/native-stack": "^6.11.0",
