@@ -16,7 +16,6 @@ import NeighborhoodRegisterInput from '../Atoms/NeighborhoodRegisterInput';
 import ComplementRegisterInput from '../Atoms/ComplementRegisterInput';
 import CEPRegisterInput from '../Atoms/CEPRegisterInput';
 import CityRegisterInput from '../Atoms/CityRegisterInput';
-import StateRegisterInput from '../Atoms/StateRegisterInput';
 import ButtonRegister from '../Atoms/ButtonRegister';
 import ButtonHaveAccount from '../Atoms/ButtonHaveAccount';
 
@@ -38,9 +37,8 @@ export default class FormRegister extends Component {
             { id: '12', component: <ComplementRegisterInput /> },
             { id: '13', component: <CEPRegisterInput /> },
             { id: '14', component: <CityRegisterInput /> },
-            { id: '15', component: <StateRegisterInput /> },
-            { id: '16', component: <ButtonRegister /> },
-            { id: '17', component: <ButtonHaveAccount /> },
+            { id: '15', component: <ButtonRegister /> },
+            { id: '16', component: <ButtonHaveAccount /> },
             
         ];
         
