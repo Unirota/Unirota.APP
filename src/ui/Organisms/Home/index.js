@@ -3,7 +3,7 @@ import { FlatList } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import UnirotaTitle from '../../Atoms/UnirotaTitle'
 import CardDestiny from '../../Molecules/CardDestiny';
-import styles from '../../../styles/Organisms/Home/styles'
+import styles from '../../../styles/Organisms/Home/styles';
 import CardHomeGroup from '../../Molecules/CardHomeGroup';
 import NavigationFooter from '../../Molecules/NavigationFooter';
 

@@ -10,6 +10,7 @@ import ProfilePage from './src/ui/Organisms/Profile'
 import SearchGroupPage from './src/ui/Organisms/Search'
 import RegisterPage from './src/ui/Organisms/Register'
 import Loading from './src/ui/Atoms/Loading'
+import ChatPage from './src/ui/Organisms/Chat';
 
 const Stack = createNativeStackNavigator();
 
@@ -69,6 +70,11 @@ export default class App extends Component {
             <Stack.Screen
               name="RegisterPage"
               component={RegisterPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ChatPage"
+              component={ChatPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
