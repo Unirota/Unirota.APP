@@ -6,27 +6,32 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import Loading from '../Atoms/Loading'
 
 export default class NavigationFooter extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      isUserDriver: null
+      isUserDriver: null,
+      currentPage: ""
     }
   }
 
   async checkUserIsDriver() {
-    const isUserDriver = await AsyncStorage.getItem('isUserDriver')
+    let isUserDriver = await AsyncStorage.getItem('isUserDriver')
+    if (isUserDriver === null)
+      isUserDriver = false
     this.setState({ isUserDriver });
   }
 
   async componentDidMount() {
     await this.checkUserIsDriver();
+    this.setState({
+      currentPage: this.props.navigation.getState().routes[0].name
+    })
   }
-  
+
   render() {
     const { navigation } = this.props;
     const { isUserDriver } = this.state;
-    
-    if(isUserDriver === null) {
+    if (isUserDriver === null) {
       return (
         <Loading />
       )
@@ -34,9 +39,10 @@ export default class NavigationFooter extends Component {
 
     return (
       <View style={NavigationFooterStyles.footer}>
-        
+
         <TouchableOpacity style={NavigationFooterStyles.button} onPress={() => {
-          navigation.navigate('HomePage')
+          if (this.state.currentPage !== 'HomePage')
+            navigation.replace('HomePage')
         }}>
           <Icon
             name="home"
@@ -48,7 +54,8 @@ export default class NavigationFooter extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity style={NavigationFooterStyles.button} onPress={() => {
-          navigation.navigate('SearchGroupPage')
+          if (this.state.currentPage !== 'SearchGroupPage')
+            navigation.replace('SearchGroupPage')
         }}>
           <Icon name="search" size={30} color="white" height={50} />
         </TouchableOpacity>
@@ -58,7 +65,10 @@ export default class NavigationFooter extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity style={NavigationFooterStyles.button} onPress={() => {
-          navigation.navigate( isUserDriver ? 'DriverProfilePage' : 'ProfilePage')
+          if (isUserDriver && this.state.currentPage !== 'DriverProfilePage')
+            navigation.replace('DriverProfilePage')
+          else if (this.state.currentPage !== 'ProfilePage')
+              navigation.replace('ProfilePage')
         }}>
           <Icon
             name="person"
