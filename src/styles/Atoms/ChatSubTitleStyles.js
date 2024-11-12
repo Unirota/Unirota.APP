@@ -10,15 +10,13 @@ export default StyleSheet.create({
    },
     grupoText:{
         marginTop: 54,
-        marginLeft: 58,
+        marginLeft: 54,
         fontWeight: 'bold',
         color: 'white',
     },
     whiteText:{
         color: '#D9D9D9',
-        marginRight:54,
-        marginLeft: 5,
+        marginRight:50,
+        marginLeft: 10,
     },
 })
-
-//arrumar

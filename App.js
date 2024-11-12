@@ -36,7 +36,7 @@ export default class App extends Component {
       )
     }
 
-    let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
+    let initialRoute = isAuthorized ? 'HomePage' : "ChatPage"
 
     return (
       <FontProvider>

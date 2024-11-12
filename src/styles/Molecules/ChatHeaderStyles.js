@@ -2,12 +2,12 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     groupContainer: {
-        marginRight:75,
+        marginRight:18,
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        alignItems: 'center'
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     font: {
-        fontSize: 12
+        fontSize: 14,
     }
 })

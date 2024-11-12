@@ -2,6 +2,6 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     text:{
         fontFamily:'Inter',
-        fontSize: 12
+        fontSize: 24,
     }
 })
