@@ -4,7 +4,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import LoginInputStyles from '../../styles/Atoms/LoginInputStyles';
 import RegisterInputStyles from '../../styles/Atoms/RegisterInputStyles';
 
-export default class HourDriverInput extends Component {
+export default class HourGroupInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
