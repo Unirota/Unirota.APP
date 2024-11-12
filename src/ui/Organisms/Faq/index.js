@@ -15,8 +15,8 @@ export default class FaqPage extends Component {
           <FaqAvatar />
           <FaqTitle />
           <FAQComponent />
-          <NavigationFooter navigation={this.props.navigation} />
         </View>
+        <NavigationFooter navigation={this.props.navigation} />
       </LinearGradient>
     )
   }

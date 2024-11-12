@@ -12,9 +12,10 @@ import RegisterPage from './src/ui/Organisms/Register'
 import Loading from './src/ui/Atoms/Loading'
 import FaqPage from './src/ui/Organisms/Faq'
 import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
-import ChatPage from './src/ui/Organisms/Chat';
+import ChatPage from './src/ui/Organisms/Chat'
+import EditProfilePage from './src/ui/Organisms/EditProfile'
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator()
 
 export default class App extends Component {
   constructor(props) {
@@ -85,6 +86,11 @@ export default class App extends Component {
             <Stack.Screen
               name="RegisterDriverPage"
               component={RegisterDriverPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="EditProfilePage"
+              component={EditProfilePage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
