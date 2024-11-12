@@ -1,6 +1,4 @@
-import AlertAsync from "react-native-alert-async";
 import ApiUnirota from "../api/ApiUnirota"
-import { BackHandler } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const userBaseRoute = 'usuario';
