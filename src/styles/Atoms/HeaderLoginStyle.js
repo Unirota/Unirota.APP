@@ -33,6 +33,12 @@ export default StyleSheet.create({
         fontWeight: '800',
         fontFamily: 'Inter'
     },
+    commonTextRegisterDriver: {
+        margin: 2,
+        fontSize: 30,
+        fontWeight: '800',
+        fontFamily: 'Inter'
+    },
     iconUser: {
         alignSelf: 'center',
         marginTop: 30

@@ -10,6 +10,7 @@ import ProfilePage from './src/ui/Organisms/Profile'
 import SearchGroupPage from './src/ui/Organisms/Search'
 import RegisterPage from './src/ui/Organisms/Register'
 import Loading from './src/ui/Atoms/Loading'
+import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
 
 const Stack = createNativeStackNavigator();
 
@@ -35,7 +36,7 @@ export default class App extends Component {
       )
     }
 
-    let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
+    let initialRoute = isAuthorized ? 'HomePage' : "RegisterDriverPage"
 
     return (
       <FontProvider>
@@ -69,6 +70,11 @@ export default class App extends Component {
             <Stack.Screen
               name="RegisterPage"
               component={RegisterPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="RegisterDriverPage"
+              component={RegisterDriverPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
