@@ -37,6 +37,16 @@ export default StyleSheet.create({
         borderRadius: 18,
         marginTop: 60
     },
+    buttonRegisterGroup: {     
+        width: 230,
+        height: 48,
+        borderRadius: 18,
+        marginTop: 60,
+        alignSelf: 'center',
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        marginBottom: 120
+    },
     ButtonDontHaveAccount:{
         alignSelf: 'center',
         justifyContent: 'center', 

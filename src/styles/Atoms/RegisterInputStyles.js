@@ -18,6 +18,17 @@ export default StyleSheet.create({
         padding: 16,
         marginTop: 15
     },
+    inputDate: {
+        alignSelf: 'center',
+        fontWeight: 'bold',
+        fontSize: 17,
+        color: 'black',
+        backgroundColor: 'white',
+        width: 300,
+        height: 50,
+        borderRadius: 16,
+        padding: 16
+    },
     inputNeighborhood: {
         flexDirection: 'row',
         marginLeft: 56,
