@@ -5,14 +5,13 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         fontWeight: 'bold',
-        color: 'white',
-        margin: 4,
-        marginTop:14,
-        
+        color: 'red',
+        margin: 8,
+        marginTop:20      
     },
     whiteText:{
         color: '#E3E8EF',  
-        fontSize: 28,
+        fontSize: 20,
         fontFamily: 'Inter'
     },
    
