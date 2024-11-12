@@ -1,113 +1,90 @@
-import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Animated, Easing, ScrollView } from 'react-native';
-import { FaqStyles } from '../../styles/Molecules/FaqStyles';
-import { FaqData } from '../../services/FaqService';
+import React, { Component } from 'react'
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  ScrollView,
+  LayoutAnimation,
+  Platform,
+  UIManager,
+} from 'react-native'
+import { FaqStyles } from '../../styles/Molecules/FaqStyles'
+import { FaqData } from '../../services/FaqService'
+
+if (Platform.OS === 'android') {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true)
+  }
+}
 
 export default class FAQComponent extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       openItem: null,
-      animation: new Animated.Value(0),
-    };
+    }
   }
 
-  toggleAccordion = (id) => {
-    const { openItem, animation } = this.state;
-    
-    if (openItem === id) {
-      Animated.timing(animation, {
-        toValue: 0,
-        duration: 500,
-        easing: Easing.bezier(0.4, 0, 0.2, 1),
-        useNativeDriver: false,
-      }).start(() => {
-        this.setState({ openItem: null });
-      });
-      return;
-    }
-  
-    if (openItem !== null) {
-      Animated.timing(animation, {
-        toValue: 0,
-        duration: 300,
-        easing: Easing.bezier(0.4, 0, 0.2, 1),
-        useNativeDriver: false,
-      }).start(() => {
-        this.setState({ openItem: id }, () => {
-          Animated.timing(animation, {
-            toValue: 1,
-            duration: 500,
-            easing: Easing.ease,
-            useNativeDriver: false,
-          }).start();
-        });
-      });
-    } else {
-      this.setState({ openItem: id });
-      Animated.timing(animation, {
-        toValue: 1,
-        duration: 500,
-        easing: Easing.ease,
-        useNativeDriver: false,
-      }).start();
-    }
-  };
+  toggleAccordion = id => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
+    this.setState(prevState => ({
+      openItem: prevState.openItem === id ? null : id,
+    }))
+  }
 
-  renderFaqItem = ({ id, question, answer }) => {
-    const { openItem, animation } = this.state;
-
-    const bodyHeight = animation.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, 100],
-    });
+  renderFaqItem = ({ item }) => {
+    const { openItem } = this.state
+    const isOpen = openItem === item.id
 
     return (
-      <View key={id} style={FaqStyles.faqItem}>
+      <View key={item.id} style={FaqStyles.faqItem}>
         <TouchableOpacity
           style={FaqStyles.questionContainer}
-          onPress={() => this.toggleAccordion(id)}
+          onPress={() => this.toggleAccordion(item.id)}
         >
-          <Text style={FaqStyles.questionText}>{question}</Text>
-          <Text style={FaqStyles.arrow}>{openItem === id ? '↑' : '↓'}</Text>
+          <Text style={FaqStyles.questionText}>{item.question}</Text>
+          <Text style={FaqStyles.arrow}>{isOpen ? '↑' : '↓'}</Text>
         </TouchableOpacity>
-        
-        {openItem === id && (
-          <Animated.View 
-            style={[
-              FaqStyles.answerContainer, 
-              { 
-                height: bodyHeight,
-                overflow: 'hidden'
-              }
-            ]}
-          >
-            <ScrollView 
-              contentContainerStyle={FaqStyles.scrollViewContent}
-              showsVerticalScrollIndicator={true}
+
+        {isOpen && (
+          <View style={FaqStyles.answerContainer}>
+            <ScrollView
+              style={FaqStyles.answerScrollView}
               nestedScrollEnabled={true}
             >
-              <Text style={FaqStyles.answerText}>{answer}</Text>
+              <Text style={FaqStyles.answerText}>{item.answer}</Text>
             </ScrollView>
-          </Animated.View>
+          </View>
         )}
       </View>
-    );
-  };
+    )
+  }
+
+  renderFooter = () => {
+    return (
+      <View style={FaqStyles.footer}>
+        <Text style={FaqStyles.footerText}>
+          Para mais dúvidas, entre em contato:
+        </Text>
+        <Text style={FaqStyles.email}>unirota@unirota.com</Text>
+      </View>
+    )
+  }
 
   render() {
     return (
       <View style={FaqStyles.mainContainer}>
-        <View style={FaqStyles.faqContainer}>
-          {FaqData.map(this.renderFaqItem)}
-        </View>
-        <View style={FaqStyles.footer}>
-          <Text style={FaqStyles.footerText}>
-            Para mais dúvidas, entre em contato:
-          </Text>
-          <Text style={FaqStyles.email}>unirota@email.com</Text>
-        </View>
+        <FlatList
+          data={FaqData}
+          renderItem={this.renderFaqItem}
+          keyExtractor={item => item.id.toString()}
+          contentContainerStyle={FaqStyles.faqContainer}
+          style={{ flex: 1 }}
+          nestedScrollEnabled={true}
+          ListFooterComponent={this.renderFooter}
+        />
       </View>
-    );
+    )
   }
 }

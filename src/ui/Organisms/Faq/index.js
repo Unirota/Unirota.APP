@@ -7,18 +7,15 @@ import styles from '../../../styles/Organisms/Faq/styles'
 import FAQComponent from '../../Molecules/Faq'
 import FaqAvatar from '../../Atoms/FaqAvatar'
 
-
 export default class FaqPage extends Component {
-
-
   render() {
     return (
       <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
         <View style={styles.container}>
-          <FaqAvatar/>
+          <FaqAvatar />
           <FaqTitle />
-          <FAQComponent/>
-          <NavigationFooter navigation={this.props.navigation}/>
+          <FAQComponent />
+          <NavigationFooter navigation={this.props.navigation} />
         </View>
       </LinearGradient>
     )

@@ -1,14 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const FaqAvatarStyles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 10,
-    },
-    avatar: {
-        width: 48,
-        height: 48,
-        borderRadius: 60,
-    }
-});
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 40,
+  },
+  avatar: {
+    width: 48,
+    height: 48,
+  },
+})

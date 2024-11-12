@@ -10,7 +10,7 @@ import ProfilePage from './src/ui/Organisms/Profile'
 import SearchGroupPage from './src/ui/Organisms/Search'
 import Loading from './src/ui/Atoms/Loading'
 import FaqPage from './src/ui/Organisms/Faq'
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator()
 
 export default class App extends Component {
   constructor(props) {
@@ -29,12 +29,10 @@ export default class App extends Component {
     const { isAuthorized } = this.state
 
     if (isAuthorized === null) {
-      return (
-        <Loading />
-      )
+      return <Loading />
     }
 
-    let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
+    let initialRoute = isAuthorized ? 'FaqPage' : 'FaqPage'
 
     return (
       <FontProvider>

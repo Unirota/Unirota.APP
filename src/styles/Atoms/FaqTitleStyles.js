@@ -5,12 +5,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: -16,
-    marginBottom: 32
+    marginBottom: 32,
   },
   commonText: {
     fontSize: 20,
     fontWeight: '800',
-    fontFamily: 'LexendExa-ExtraBold',
+    fontFamily: 'Inter',
     marginTop: 28,
   },
   blueText: {
@@ -18,6 +18,6 @@ export default StyleSheet.create({
   },
   whiteText: {
     color: '#FFFFFF',
-    marginLeft: 5
+    marginLeft: 5,
   },
 })
