@@ -13,6 +13,7 @@ import Loading from './src/ui/Atoms/Loading'
 import FaqPage from './src/ui/Organisms/Faq'
 import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
 import ChatPage from './src/ui/Organisms/Chat';
+import RegisterGroupPage from './src/ui/Organisms/RegisterDriver'
 
 const Stack = createNativeStackNavigator();
 
@@ -83,8 +84,8 @@ export default class App extends Component {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="RegisterDriverPage"
-              component={RegisterDriverPage}
+              name="RegisterGroupPage"
+              component={RegisterGroupPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

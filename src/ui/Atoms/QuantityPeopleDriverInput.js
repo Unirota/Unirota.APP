@@ -2,7 +2,7 @@ import { Component } from 'react'
 import { View, TextInput } from 'react-native'
 import RegisterInputStyles from '../../styles/Atoms/RegisterInputStyles';
 
-export default class QuantityPeopleDriver extends Component {
+export default class QuantityPeopleGroup extends Component {
     render() {
         return (
             <View>  
