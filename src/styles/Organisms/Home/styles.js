@@ -6,5 +6,10 @@ export default StyleSheet.create({
     },
     gradient: {
         flex: 1
-    }
+    },
+    row: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
 })

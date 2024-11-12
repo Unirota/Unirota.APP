@@ -8,9 +8,12 @@ import HomePage from './src/ui/Organisms/Home'
 import DriverProfilePage from './src/ui/Organisms/DriverProfile'
 import ProfilePage from './src/ui/Organisms/Profile'
 import SearchGroupPage from './src/ui/Organisms/Search'
+import RegisterPage from './src/ui/Organisms/Register'
 import Loading from './src/ui/Atoms/Loading'
 import FaqPage from './src/ui/Organisms/Faq'
-const Stack = createNativeStackNavigator()
+import ChatPage from './src/ui/Organisms/Chat';
+
+const Stack = createNativeStackNavigator();
 
 export default class App extends Component {
   constructor(props) {
@@ -32,7 +35,7 @@ export default class App extends Component {
       return <Loading />
     }
 
-    let initialRoute = isAuthorized ? 'FaqPage' : 'FaqPage'
+    let initialRoute = isAuthorized ? 'HomePage' : 'LoginPage'
 
     return (
       <FontProvider>
@@ -66,6 +69,16 @@ export default class App extends Component {
             <Stack.Screen
               name="FaqPage"
               component={FaqPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="RegisterPage"
+              component={RegisterPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ChatPage"
+              component={ChatPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
