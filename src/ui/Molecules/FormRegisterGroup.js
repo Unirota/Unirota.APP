@@ -11,25 +11,20 @@ import QuantityPeopleGroup from '../Atoms/QuantityPeopleDriverInput';
 import DestinyGroupInput from '../Atoms/DestinyDriverInput';
 import DescriptionGroupInput from '../Atoms/DescriptionGroupInput';
 import HourGroupInput from '../Atoms/HourDriverInput';
-import NumberLicenseInput from '../Atoms/NumberLicenseInput';
-import CarNumberInput from '../Atoms/CarNumberInput';
-import CarColorInput from '../Atoms/CarColorInput';
-import TypeCarInput from '../Atoms/TypeCarInput';
-import DescriptionDriverInput from '../Atoms/DescriptionDriverInput';
-import ButtonRegisterDriver from '../Atoms/ButtonRegisterDriver';
 
 
-export default class FormRegisterDriver extends Component {
+export default class FormRegisterGroup extends Component {
     renderItem = ({ item }) => item.component;
     render() {
         const Components = [
             { id: '1', component: <HeaderRegisterCreateGroup /> },
-            { id: '2', component: <NumberLicenseInput /> },
-            { id: '3', component: <CarNumberInput /> },
-            { id: '4', component: <CarColorInput /> },
-            { id: '5', component: <TypeCarInput /> },
-            { id: '6', component: <DescriptionDriverInput /> },
-            { id: '7', component: <ButtonRegisterDriver /> },
+            { id: '2', component: <PhotoUserRegister /> },
+            { id: '3', component: <NameGroupDriverInput /> },
+            { id: '4', component: <QuantityPeopleGroup /> },
+            { id: '5', component: <HourGroupInput /> },
+            { id: '6', component: <DestinyGroupInput /> },
+            { id: '7', component: <DescriptionGroupInput /> },
+            { id: '8', component: <ButtonRegisterGroup /> },
             
         ];
         

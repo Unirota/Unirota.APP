@@ -38,8 +38,7 @@ export default class FormRegister extends Component {
             { id: '13', component: <CEPRegisterInput /> },
             { id: '14', component: <CityRegisterInput /> },
             { id: '15', component: <ButtonRegister /> },
-            { id: '16', component: <ButtonHaveAccount /> },
-            
+            { id: '16', component: <ButtonHaveAccount /> },      
         ];
         
         return (
