@@ -1,11 +1,11 @@
 import { Component } from 'react'
-import { View, Text, Image, TextInput } from 'react-native'
-import UnirotaTitleStyles from '../../styles/Atoms/UnirotaTitleStyles';
-import HeaderLoginStyle from '../../styles/Atoms/HeaderLoginStyle';
-import LoginInputStyles from '../../styles/Atoms/LoginInputStyles';
+import { View, TextInput } from 'react-native'
 import RegisterInputStyles from '../../styles/Atoms/RegisterInputStyles';
 
 export default class ComplementRegisterInput extends Component {
+    constructor(props){
+        super(props)
+    }
     render() {
         return (
             <View> 
@@ -14,6 +14,7 @@ export default class ComplementRegisterInput extends Component {
                     placeholderTextColor='black'
                     placeholder="Complemento"
                     keyboardType="text"
+                    onChangeText={this.props.onChangeText}
                 />
             </View>
         )
