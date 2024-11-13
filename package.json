@@ -27,10 +27,12 @@
     "react-dom": "18.2.0",
     "react-native": "0.74.5",
     "react-native-alert-async": "^1.0.5",
+    "react-native-image-picker": "^7.1.2",
     "react-native-star-rating-widget": "^1.9.1",
     "react-native-svg": "^15.8.0",
     "react-native-svg-transformer": "^1.5.0",
-    "react-native-web": "~0.19.10"
+    "react-native-web": "~0.19.10",
+    "expo-image-picker": "~15.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
