@@ -11,10 +11,15 @@ export default class RegisterPage extends Component {
     constructor(props) {
         super(props)
         this.goToHome = this.goToHome.bind(this)
+        this.goToLogin = this.goToLogin.bind(this)
     }
 
     goToHome() {
         this.props.navigation.replace("HomePage")
+    }
+
+    goToLogin(){
+        this.props.navigation.replace("LoginPage")
     }
 
     render() {
@@ -24,7 +29,7 @@ export default class RegisterPage extends Component {
                 locations={[0.0, 0.6]}
                 style={styles.gradient}
             >
-                <FormRegister/>
+                <FormRegister goToLogin={this.goToLogin}/>
                 {/* <FormLogin goToHome={this.goToHome} /> */}
                 
             </LinearGradient>

@@ -21,6 +21,7 @@ export default class DateRegisterInput extends Component {
             // Atualiza a data somente se a ação for de confirmação ("set")
             const currentDate = selectedDate || this.state.date;
             this.setState({ show: false, date: currentDate });
+            this.props.onChangeText(this.state.date)
         } else {
             // Fecha o picker se a ação for de cancelamento ("dismissed")
             this.setState({ show: false });
