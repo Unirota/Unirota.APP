@@ -22,4 +22,23 @@ export default new class GroupService {
     
     return response;
   }
+
+  async GetGroups(destino, nota, horaInicio) {
+    const token = await AsyncStorage.getItem('token');
+    let response = await ApiUnirota.get(`/${groupBaseRoute}/home?destino=${destino}&nota=${nota}&horaInicio=${horaInicio}`, {
+      headers: {
+        'Authorization': token
+      }
+    })
+    .then(response => {
+      
+      return response;
+
+    }).catch(error => {
+      
+      console.log(error)
+    })
+    
+    return response;
+  }
 }

@@ -5,7 +5,6 @@ import DateTimePicker from '@react-native-community/datetimepicker'
 import StarRating from 'react-native-star-rating-widget'
 import { Picker } from '@react-native-picker/picker'
 import styles from '../../styles/Molecules/SearchGroupModalStyles'
-import SearchGroupService from '../../services/SearchGroupService'
 
 export default class SearchGroupModal extends Component {
   state = {
@@ -13,13 +12,7 @@ export default class SearchGroupModal extends Component {
     showTimePicker: false,
     selectedDestination: '',
     rating: 0,
-    groups: [],
   };
-
-  componentDidMount() {
-    const groups = SearchGroupService.getGroups();
-    this.setState({ groups });
-  }
 
   destinations = [
     'UEM',
@@ -44,9 +37,12 @@ export default class SearchGroupModal extends Component {
       rating: 0,
     }, () => {
       
-      const allGroups = SearchGroupService.getGroups();
-      this.setState({ groups: allGroups });
-      this.props.onSearch(allGroups);
+      this.props.onSearch({
+        horaInicio: null,
+        destino: "",
+        nota: 0
+      });
+      this.props.onClose();
     });
   };
 
@@ -66,25 +62,19 @@ export default class SearchGroupModal extends Component {
     const filters = {};
     
     if (formattedTime) {
-      filters.startTime = formattedTime;
+      filters.horaInicio = formattedTime;
     }
     
     if (selectedDestination) {
-      filters.destination = selectedDestination;
+      filters.destino = selectedDestination;
     }
     
     if (rating > 0) {
-      filters.rating = rating;
+      filters.nota = rating;
     }
 
     
-    const filteredGroups = SearchGroupService.getGroups(filters);
-    
-    
-    this.setState({ groups: filteredGroups });
-
-    
-    this.props.onSearch(filteredGroups);
+    this.props.onSearch(filters);
     this.props.onClose();
   };
 
