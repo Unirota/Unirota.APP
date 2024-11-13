@@ -27,8 +27,8 @@ export default class SearchGroupHeader extends Component {
     }
 
     const filteredGroups = SearchGroupService.getGroups().filter(group => 
-      group.name.toLowerCase().includes(text.toLowerCase()) ||
-      group.institution.toLowerCase().includes(text.toLowerCase())
+      group.nome.toLowerCase().includes(text.toLowerCase()) ||
+      group.destino.toLowerCase().includes(text.toLowerCase())
     );
 
     this.handleSearch(filteredGroups);

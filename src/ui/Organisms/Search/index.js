@@ -6,16 +6,28 @@ import SearchGroupHeader from '../../Molecules/SearchGroupHeader'
 import NavigationFooter from '../../Molecules/NavigationFooter'
 import GroupCard from '../../Molecules/SearchGroupCard'
 import styles from '../../../styles/Organisms/Profile/styles'
-import SearchGroupService from '../../../services/SearchGroupService'
+import GroupService from '../../../services/GroupService'
+import Loading from '../../Atoms/Loading'
 
 export default class SearchGroupPage extends Component {
-  state = {
-    groups: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      groups: []
+    }
+  }
 
-  componentDidMount() {
-    const initialGroups = SearchGroupService.getGroups();
-    this.setState({ groups: initialGroups });
+  async ObterDados() {
+    const dados = await GroupService.GetGroups();
+    return dados.data;
+  }
+
+  async componentDidMount() {
+    const dadosGrupos = await this.ObterDados();
+    
+    if(dadosGrupos !== null){
+      this.setState({ groups: dadosGrupos})
+    }
   }
 
   handleUpdateGroups = (updatedGroups) => {
@@ -23,14 +35,27 @@ export default class SearchGroupPage extends Component {
   };
 
   render() {
+    const { groups } = this.state;
+
+    if(groups.length === 0) {
+      return(
+        <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
+          <View style={styles.container}>
+            <UnirotaTitle />
+            <Loading/>
+          </View>
+        </LinearGradient>
+      )
+    }
+
     return (
       <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
         <View style={styles.container}>
           <UnirotaTitle />
           <SearchGroupHeader onUpdateGroups={this.handleUpdateGroups} />
           <ScrollView style={styles.groupList}>
-            {this.state.groups.map((group, index) => (
-              <GroupCard key={index} group={group} />
+            {this.state.groups.map((group) => (
+              <GroupCard key={group.id} group={group} />
             ))}
           </ScrollView>
           <NavigationFooter navigation={this.props.navigation}/>

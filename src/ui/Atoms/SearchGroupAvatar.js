@@ -6,7 +6,7 @@ import styles from '../../styles/Atoms/SearchGroupAvatarStyles'
 
 export default class GroupAvatar extends Component {
   render() {
-    const { rating } = this.props
+    const { nota } = this.props
 
     return (
       <View style={styles.container}>
@@ -14,7 +14,7 @@ export default class GroupAvatar extends Component {
           <Icon name="photo-camera" size={24} color="white" />
         </View>
         <View style={styles.ratingContainer}>
-          <GroupRating rating={rating} />
+          <GroupRating rating={nota} />
         </View>
       </View>
     )
