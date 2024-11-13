@@ -1,12 +1,12 @@
 import { Component } from 'react'
-import { View, Text, Image, TextInput } from 'react-native'
-import UnirotaTitleStyles from '../../styles/Atoms/UnirotaTitleStyles';
-import HeaderLoginStyle from '../../styles/Atoms/HeaderLoginStyle';
-import LoginInputStyles from '../../styles/Atoms/LoginInputStyles';
+import { View, TextInput } from 'react-native'
 import RegisterInputStyles from '../../styles/Atoms/RegisterInputStyles';
 import styles from '../../styles/Organisms/Home/styles';
 
 export default class CityRegisterInput extends Component {
+    constructor(props){
+        super(props)
+    }
     render() {
         return (
             <View style={styles.row}>  
@@ -15,12 +15,14 @@ export default class CityRegisterInput extends Component {
                     placeholderTextColor='black'
                     placeholder="Cidade"
                     keyboardType="text"
+                    onChangeText={this.props.onChangeTextCity}
                 />
                 <TextInput
                     style={RegisterInputStyles.inputNumber}
                     placeholderTextColor='black'
                     placeholder="Estado"
                     keyboardType="text"
+                    onChangeText={this.props.onChangeTextState}
                 />
             </View>
         )

@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     container: {
-        flex: 1,
+        justifyContent:'space-around',
         paddingTop: 16
     },
     chatContainer:{
@@ -10,13 +10,14 @@ export default StyleSheet.create({
         height: '90%',
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
-        padding: 16
+        padding: 18,
     },
     inputContainer:{
         backgroundColor: '#3D3D3D',
         height: '10%',
-        paddingTop: 12,
-        paddingLeft: 16,
-        paddingRight: 16
+        paddingTop: 16,
+        paddingLeft: 18,
+        paddingRight: 18,
+        flex:1
     }
 })

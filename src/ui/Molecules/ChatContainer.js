@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, FlatList, KeyboardAvoidingView, Platform } from 'react-native'
 import ChatContainerStyles from '../../styles/Molecules/ChatContainerStyles'
 import ChatMessageInput from '../Atoms/ChatMessageInput'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -29,7 +29,9 @@ export default class ChatContainer extends Component {
     render() {
         messages = ChatService.getMessages()
         return (
-            <View style={ChatContainerStyles.container}>
+                
+            <KeyboardAvoidingView style={ChatContainerStyles.container}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
                 <View style={ChatContainerStyles.chatContainer}>
                     <FlatList
                         data={messages}
@@ -40,9 +42,12 @@ export default class ChatContainer extends Component {
                 <View style={ChatContainerStyles.inputContainer}>
                     <ChatMessageInput />
                 </View>
-            </View>
+                
+            </KeyboardAvoidingView>
+            
 
         )
     }
+    
 
 }

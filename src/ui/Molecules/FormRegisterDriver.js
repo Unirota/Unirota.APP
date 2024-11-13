@@ -4,25 +4,26 @@ import { View } from 'react-native'
 import PhotoUserRegister from '../Atoms/PhotoUserRegister';
 import styles from '../../styles/Organisms/Home/styles'
 import NameGroupDriverInput from '../Atoms/NameGroupDriverInput';
-import QuantityPeopleDriver from '../Atoms/QuantityPeopleDriverInput';
 import HourDriverInput from '../Atoms/HourDriverInput';
-import DestinyDriverInput from '../Atoms/DestinyDriverInput';
-import DescriptionDriverInput from '../Atoms/DescriptionDriverInput';
 import ButtonRegisterGroup from '../Atoms/ButtonRegisterGroup';
 import HeaderRegisterCreateGroup from './HeaderRegisterCreateGroup';
+import QuantityPeopleGroup from '../Atoms/QuantityPeopleDriverInput';
+import DestinyGroupInput from '../Atoms/DestinyDriverInput';
+import DescriptionGroupInput from '../Atoms/DescriptionDriverInput';
+import HourGroupInput from '../Atoms/HourDriverInput';
 
 
-export default class FormRegisterDriver extends Component {
+export default class FormRegisterGroup extends Component {
     renderItem = ({ item }) => item.component;
     render() {
         const Components = [
             { id: '1', component: <HeaderRegisterCreateGroup /> },
             { id: '2', component: <PhotoUserRegister /> },
             { id: '3', component: <NameGroupDriverInput /> },
-            { id: '4', component: <QuantityPeopleDriver /> },
-            { id: '5', component: <HourDriverInput /> },
-            { id: '6', component: <DestinyDriverInput /> },
-            { id: '7', component: <DescriptionDriverInput /> },
+            { id: '4', component: <QuantityPeopleGroup /> },
+            { id: '5', component: <HourGroupInput /> },
+            { id: '6', component: <DestinyGroupInput /> },
+            { id: '7', component: <DescriptionGroupInput /> },
             { id: '8', component: <ButtonRegisterGroup /> },
             
         ];

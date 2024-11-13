@@ -51,7 +51,7 @@ export default class FormLogin extends Component {
                 </View>
                 <View>
                     <ButtonLogin onPress={this.Login} />
-                    <ButtonDontHaveAccount />
+                    <ButtonDontHaveAccount onPress={this.props.goToRegister} />
                 </View>
             </View>
         )

@@ -8,7 +8,7 @@ export default class ButtonHaveAccount extends Component {
     render() {
         return (
             <View>
-                <TouchableOpacity style={ButtonLoginStyles.ButtonDontHaveAccount}>
+                <TouchableOpacity style={ButtonLoginStyles.ButtonDontHaveAccount} onPress={this.props.onPress}>
                         <Text style={ButtonLoginStyles.ButtonDontHaveAccountText}>Eu tenho uma conta</Text>
                 </TouchableOpacity>
             </View>

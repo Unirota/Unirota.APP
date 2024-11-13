@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import ChatHeader from '../../Molecules/ChatHeader';
 import ChatContainer from '../../Molecules/ChatContainer';
+import NavigationFooter from '../../Molecules/NavigationFooter';
 
 export default class ChatPage extends Component {
     render() {

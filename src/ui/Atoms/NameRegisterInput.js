@@ -6,14 +6,17 @@ import LoginInputStyles from '../../styles/Atoms/LoginInputStyles';
 import RegisterInputStyles from '../../styles/Atoms/RegisterInputStyles';
 
 export default class NameRegisterInput extends Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
         return (
-            <View>  
+            <View>
                 <Text style={[
                     HeaderLoginStyle.commonSubtitleLogin,
                     UnirotaTitleStyles.whiteText,
                     HeaderLoginStyle.subtitleRegister,
-                    ]}>
+                ]}>
                     Dados Pessoais
                 </Text>
                 <TextInput
@@ -21,6 +24,7 @@ export default class NameRegisterInput extends Component {
                     placeholderTextColor='black'
                     placeholder="Nome Completo"
                     keyboardType="text"
+                    onChangeText={this.props.onChangeText}
                 />
             </View>
         )
