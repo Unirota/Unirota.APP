@@ -23,7 +23,7 @@ export default new class GroupService {
     return response;
   }
 
-  async GetGroups(destino = "", nota = 0, horaInicio = "") {
+  async GetGroups(destino, nota, horaInicio) {
     const token = await AsyncStorage.getItem('token');
     let response = await ApiUnirota.get(`/${groupBaseRoute}/home?destino=${destino}&nota=${nota}&horaInicio=${horaInicio}`, {
       headers: {
