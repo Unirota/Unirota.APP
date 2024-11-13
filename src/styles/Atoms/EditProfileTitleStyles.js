@@ -5,8 +5,7 @@ export const EditProfileTitleStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 60,
-    marginBottom: 20,
+    marginTop: 20,
   },
   icon: {
     width: 24,
@@ -14,9 +13,15 @@ export const EditProfileTitleStyles = StyleSheet.create({
     marginRight: 8,
     tintColor: '#00D1FF',
   },
-  title: {
+  firstTitle: {
     color: '#00D1FF',
     fontSize: 20,
     fontWeight: 'bold',
   },
+  secondTitle: {
+    color: '#E3E8EF',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginLeft: 5
+  }
 })

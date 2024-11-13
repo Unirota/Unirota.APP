@@ -4,6 +4,7 @@ export const EditProfileAvatarStyles = StyleSheet.create({
   container: {
     alignItems: 'center',
     marginVertical: 20,
+    justifyContent: 'center'
   },
   avatarContainer: {
     position: 'relative',
@@ -15,6 +16,13 @@ export const EditProfileAvatarStyles = StyleSheet.create({
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden'
+  },
+  avatarImage: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 50,
+    resizeMode: 'cover'
   },
   cameraIcon: {
     width: 40,
@@ -25,7 +33,7 @@ export const EditProfileAvatarStyles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     right: 0,
-    backgroundColor: '#00D1FF',
+    backgroundColor: '#00B100',
     width: 24,
     height: 24,
     borderRadius: 12,

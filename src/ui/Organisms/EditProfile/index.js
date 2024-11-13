@@ -6,6 +6,8 @@ import EditProfileTitle from '../../Atoms/EditProfileTitle'
 import EditProfileAvatar from '../../Atoms/EditProfileAvatar'
 import EditProfile from '../../Molecules/EditProfile'
 import Styles from '../../../styles/Organisms/EditProfile/styles'
+import EditProfileLogo from '../../Atoms/EditProfileLogo'
+
 
 export default class EditProfilePage extends Component {
   render() {
@@ -16,6 +18,7 @@ export default class EditProfilePage extends Component {
           contentContainerStyle={Styles.scrollViewContent}
         >
           <View style={Styles.container}>
+            <EditProfileLogo/>
             <EditProfileTitle />
             <EditProfileAvatar />
             <EditProfile navigation={this.props.navigation} />
