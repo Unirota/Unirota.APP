@@ -15,7 +15,6 @@ import RegisterGroupPage from './src/ui/Organisms/RegisterGroup'
 import FaqPage from './src/ui/Organisms/Faq'
 import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
 import EditProfilePage from './src/ui/Organisms/EditProfile'
-import RegisterGroupPage from './src/ui/Organisms/RegisterDriver'
 
 
 const Stack = createNativeStackNavigator()
