@@ -39,7 +39,7 @@ export default class App extends Component {
       return <Loading />
     }
 
-    let initialRoute = isAuthorized ? 'ChatPage' : 'ChatPage'
+    let initialRoute = isAuthorized ? 'HomePage' : 'LoginPage'
 
     return (
       <FontProvider>
