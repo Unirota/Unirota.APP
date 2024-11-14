@@ -107,7 +107,7 @@ export default class ChatContainer extends Component {
                     <FlatList
                         data={this.state.messages}
                         renderItem={({ item }) => this.renderMessage(item)}
-                        keyExtractor={item => item.id}
+                        keyExtractor={(item, index) => index}
                     />
                 </View>
                 <View style={ChatContainerStyles.inputContainer}>
