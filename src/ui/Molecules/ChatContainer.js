@@ -1,8 +1,7 @@
-import { Component } from 'react'
-import { View, FlatList, KeyboardAvoidingView, Platform } from 'react-native'
+import React, { Component } from 'react'
+import { View, FlatList, KeyboardAvoidingView } from 'react-native'
 import ChatContainerStyles from '../../styles/Molecules/ChatContainerStyles'
 import ChatMessageInput from '../Atoms/ChatMessageInput'
-import ChatService from '../../services/ChatService'
 import ChatMessageSent from '../Atoms/ChatMessageSent'
 import ChatMessageReceived from '../Atoms/ChatMessageReceived'
 import * as signalR from '@microsoft/signalr';
@@ -20,6 +19,7 @@ export default class ChatContainer extends Component {
         };
 
         this.connection = null;
+        this.flatListRef = React.createRef();
     }
 
     async ObterTodasMensagens(grupoId) {
@@ -35,7 +35,6 @@ export default class ChatContainer extends Component {
     async componentDidMount() {
         const usuarioId = await AsyncStorage.getItem('userId');
         this.setState({usuarioId})
-        console.log(usuarioId)
 
         this.connection = new signalR.HubConnectionBuilder()
             .withUrl("http://unirotaapiloadbalancer-291617151.us-east-2.elb.amazonaws.com:8080/chatHub", {
@@ -53,11 +52,14 @@ export default class ChatContainer extends Component {
 
             await this.connection.invoke("EntrarGrupo", this.state.grupoId);
 
-            this.connection.on("ReceiveMessage", (usuarioId, conteudo) => {
-                const newMessage = { usuarioId, conteudo }
+            this.connection.on("ReceiveMessage", (usuarioId, nomeUsuario, conteudo) => {
+                const newMessage = { usuarioId, nomeUsuario, conteudo }
                 this.setState(prevState => ({
                     messages: [...prevState.messages, newMessage],
-                }))
+                }),
+                () => {
+                    this.flatListRef.current.scrollToEnd({animated: true});
+                })
             });
 
         } catch(error) {
@@ -105,9 +107,11 @@ export default class ChatContainer extends Component {
             behavior={'padding'}>
                 <View style={ChatContainerStyles.chatContainer}>
                     <FlatList
+                        ref={this.flatListRef}
                         data={this.state.messages}
                         renderItem={({ item }) => this.renderMessage(item)}
                         keyExtractor={(item, index) => index}
+                        onContentSizeChange={() => this.flatListRef.current.scrollToEnd({ animated: true })}
                     />
                 </View>
                 <View style={ChatContainerStyles.inputContainer}>

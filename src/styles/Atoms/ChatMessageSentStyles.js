@@ -11,10 +11,12 @@ export default StyleSheet.create({
         alignSelf: 'flex-end',
         padding: 12,
     },
+    userName: {
+        alignSelf: 'flex-end',
+        width: '60%',
+        color: 'black'
+    },
     whitText:{
         color:'white',
     }
-
-}
-
-)
+})

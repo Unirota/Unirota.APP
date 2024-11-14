@@ -2,7 +2,7 @@ import { Component } from 'react'
 import { View, Text ,TextInput} from 'react-native'
 import ChatMessageInputStyles from '../../styles/Atoms/ChatMessageInputStyles'
 import { TouchableOpacity } from 'react-native';
-import ButtonLoginStyles from '../../styles/Atoms/ButtonLoginStyles';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class ChatMessageInput extends Component {
     constructor(props) {
@@ -15,21 +15,21 @@ export default class ChatMessageInput extends Component {
     handleSend = () => {
         if (this.state.message.trim()) {
             this.props.onSendMessage(this.state.message);
-            this.setState({ message: '' }); // Reset the message after sending
+            this.setState({ message: '' });
         }
     }
 
     render() {
         return (
-            <View>
+            <View style={ChatMessageInputStyles.messageInputContainer}>
                 <TextInput
                     style={ChatMessageInputStyles.message}
                     placeholder='Mensagem...'
-                    value={this.state.message} // Bind TextInput value to state
-                    onChangeText={(text) => this.setState({ message: text })} // Update state on text change
+                    value={this.state.message}
+                    onChangeText={(text) => this.setState({ message: text })}
                 />
-                <TouchableOpacity onPress={this.handleSend}>
-                    <Text>Send</Text>
+                <TouchableOpacity onPress={this.handleSend} style={ChatMessageInputStyles.sendButton}>
+                    <Ionicons name="send" size={20} color="#fff" />
                 </TouchableOpacity>
             </View>
         );
