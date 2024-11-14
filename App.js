@@ -10,11 +10,11 @@ import ProfilePage from './src/ui/Organisms/Profile'
 import SearchGroupPage from './src/ui/Organisms/Search'
 import RegisterPage from './src/ui/Organisms/Register'
 import Loading from './src/ui/Atoms/Loading'
+import ChatPage from './src/ui/Organisms/Chat';
+import RegisterGroupPage from './src/ui/Organisms/RegisterGroup'
 import FaqPage from './src/ui/Organisms/Faq'
 import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
 import EditProfilePage from './src/ui/Organisms/EditProfile'
-import ChatPage from './src/ui/Organisms/Chat';
-import RegisterGroupPage from './src/ui/Organisms/RegisterDriver'
 
 
 const Stack = createNativeStackNavigator()
@@ -91,8 +91,8 @@ export default class App extends Component {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="EditProfilePage"
-              component={EditProfilePage}
+              name="RegisterDriverPage"
+              component={RegisterDriverPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

@@ -56,4 +56,22 @@ export default StyleSheet.create({
         padding: 16,
         marginTop: 15
     },
+    StylesDriver: {
+        fontSize: 18,
+        marginLeft: 8,
+    },
+    ContainerRegisterDriver:{
+        maxHeight: 200,
+        overflow: 'hidden',
+    },
+    OptionColorScroll: {
+        backgroundColor: '#D9D9D9',
+    },
+    OptionColorText: {
+        padding: 16,
+        paddingTop: 8,
+        fontSize: 14,
+        color: '#666',
+        textAlign: 'justify',
+    }
 })

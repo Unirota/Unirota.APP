@@ -1,10 +1,9 @@
 import { Component } from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from '../../../styles/Organisms/Home/styles'
-import FormRegisterDriver from '../../Molecules/FormRegisterDriver';
 import FormRegisterGroup from '../../Molecules/FormRegisterGroup';
 
-export default class RegisterDriverPage extends Component {
+export default class RegisterGroupPage extends Component {
     constructor(props) {
         super(props)
         this.goToHome = this.goToHome.bind(this)
