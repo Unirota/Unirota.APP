@@ -13,14 +13,14 @@ export default class SearchGroupCard extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.leftContent}>
-          <GroupAvatar rating={group.rating} /> 
+          <GroupAvatar nota={group.nota} /> 
           <View style={styles.infoContainer}>
-            <GroupInfo name={group.name} institution={group.institution} />
+            <GroupInfo nome={group.nome} destino={group.destino} />
           </View>
         </View>
         
         <View style={styles.rightContent}>
-          <TimeInfo time={group.time} />
+          <TimeInfo horaInicio={group.horaInicio} />
           <InfoButton onPress={group.onInfoPress} />
         </View>
       </View>

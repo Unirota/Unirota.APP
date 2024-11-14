@@ -12,9 +12,13 @@ import RegisterPage from './src/ui/Organisms/Register'
 import Loading from './src/ui/Atoms/Loading'
 import ChatPage from './src/ui/Organisms/Chat';
 import RegisterGroupPage from './src/ui/Organisms/RegisterGroup'
+import FaqPage from './src/ui/Organisms/Faq'
 import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
+import EditProfilePage from './src/ui/Organisms/EditProfile'
+import RegisterGroupPage from './src/ui/Organisms/RegisterDriver'
 
-const Stack = createNativeStackNavigator();
+
+const Stack = createNativeStackNavigator()
 
 export default class App extends Component {
   constructor(props) {
@@ -33,12 +37,10 @@ export default class App extends Component {
     const { isAuthorized } = this.state
 
     if (isAuthorized === null) {
-      return (
-        <Loading />
-      )
+      return <Loading />
     }
 
-    let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
+    let initialRoute = isAuthorized ? 'HomePage' : 'LoginPage'
 
     return (
       <FontProvider>
@@ -67,6 +69,11 @@ export default class App extends Component {
             <Stack.Screen
               name="SearchGroupPage"
               component={SearchGroupPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="FaqPage"
+              component={FaqPage}
               options={{ headerShown: false }}
             />
             <Stack.Screen

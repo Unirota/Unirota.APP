@@ -6,6 +6,9 @@ import LoginInputStyles from '../../styles/Atoms/LoginInputStyles';
 import RegisterInputStyles from '../../styles/Atoms/RegisterInputStyles';
 
 export default class AdressRegisterInput extends Component {
+    constructor(props){
+        super(props)
+    }
     render() {
         return (
             <View>  
@@ -21,6 +24,7 @@ export default class AdressRegisterInput extends Component {
                     placeholderTextColor='black'
                     placeholder="Rua"
                     keyboardType="text"
+                    onChangeText={this.props.onChangeText}
                 />
             </View>
         )

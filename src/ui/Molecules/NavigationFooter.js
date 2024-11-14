@@ -39,7 +39,7 @@ export default class NavigationFooter extends Component {
 
     return (
       <View style={NavigationFooterStyles.footer}>
-
+      
         <TouchableOpacity style={NavigationFooterStyles.button} onPress={() => {
           if (this.state.currentPage !== 'HomePage')
             navigation.replace('HomePage')
@@ -78,7 +78,6 @@ export default class NavigationFooter extends Component {
             marginRight={10}
           />
         </TouchableOpacity>
-
       </View>
     )
   }

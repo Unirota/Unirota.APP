@@ -19,7 +19,7 @@ import DescriptionDriverInput from '../Atoms/DescriptionDriverInput';
 import ButtonRegisterDriver from '../Atoms/ButtonRegisterDriver';
 
 
-export default class FormRegisterDriver extends Component {
+export default class FormRegisterGroup extends Component {
     renderItem = ({ item }) => item.component;
     render() {
         const Components = [
