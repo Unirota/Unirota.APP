@@ -6,11 +6,16 @@ import ChatMessageReceivedStyles from '../../styles/Atoms/ChatMessageReceivedSty
 export default class ChatMessageReceived extends Component {
     render() {
         return (
-            <View style={ChatMessageReceivedStyles.messageReceived}>
-                 <Text style={{color: 'black'}}>
-                    {this.props.message.conteudo}
-            
+            <View>
+                <Text style={{color: 'black'}}>
+                    {this.props.message.nomeUsuario}
                 </Text>
+                <View style={ChatMessageReceivedStyles.messageReceived}>
+                    <Text style={{color: 'black'}}>
+                        {this.props.message.conteudo}
+                
+                    </Text>
+                </View>
             </View>
         )
     }
