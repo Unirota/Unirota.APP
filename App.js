@@ -11,10 +11,10 @@ import SearchGroupPage from './src/ui/Organisms/Search'
 import RegisterPage from './src/ui/Organisms/Register'
 import Loading from './src/ui/Atoms/Loading'
 import FaqPage from './src/ui/Organisms/Faq'
-import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
 import EditProfilePage from './src/ui/Organisms/EditProfile'
 import ChatPage from './src/ui/Organisms/Chat';
 import RegisterGroupPage from './src/ui/Organisms/RegisterDriver'
+import GroupListPage from './src/ui/Organisms/GroupList'
 
 
 const Stack = createNativeStackNavigator()
@@ -28,23 +28,23 @@ export default class App extends Component {
   }
 
   async componentDidMount() {
-    const isAuthorized = await AppService.AutomaticLogin()
-    this.setState({ isAuthorized })
+    // const isAuthorized = await AppService.AutomaticLogin()
+    // this.setState({ isAuthorized })
   }
 
   render() {
-    const { isAuthorized } = this.state
+    // const { isAuthorized } = this.state
 
-    if (isAuthorized === null) {
-      return <Loading />
-    }
+    // if (isAuthorized === null) {
+    //   return <Loading />
+    // }
 
-    let initialRoute = isAuthorized ? 'HomePage' : 'LoginPage'
+    // let initialRoute = isAuthorized ? 'HomePage' : 'LoginPage'
 
     return (
       <FontProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName={initialRoute}>
+          <Stack.Navigator initialRouteName={`GroupListPage`}>
             <Stack.Screen
               name="LoginPage"
               component={LoginPage}
@@ -95,7 +95,12 @@ export default class App extends Component {
               component={EditProfilePage}
               options={{ headerShown: false }}
             />
-          </Stack.Navigator>
+            <Stack.Screen
+              name="GroupListPage"
+              component={GroupListPage}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>  
         </NavigationContainer>
       </FontProvider>
     )
