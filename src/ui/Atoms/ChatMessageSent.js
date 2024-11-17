@@ -9,10 +9,15 @@ export default class ChatMessageSent extends Component {
     }
     render() {
         return (
-            <View style={ChatMessageSentStyles.messageSent}>
-                <Text style={{color: 'white'}}>
-                    {this.props.message.conteudo}
+            <View>
+                <Text style={ChatMessageSentStyles.userName}>
+                    {this.props.message.nomeUsuario}
                 </Text>
+                <View style={ChatMessageSentStyles.messageSent}>
+                    <Text style={{color: 'white'}}>
+                        {this.props.message.conteudo}
+                    </Text>
+                </View>
             </View>
         )
     }

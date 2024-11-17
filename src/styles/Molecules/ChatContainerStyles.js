@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     container: {
         justifyContent:'space-around',
-        paddingTop: 16
+        paddingTop: 16,
+        flex: 1
     },
     chatContainer:{
         backgroundColor: '#E3E8EF',
@@ -18,6 +19,5 @@ export default StyleSheet.create({
         paddingTop: 16,
         paddingLeft: 18,
         paddingRight: 18,
-        flex:1
     }
 })

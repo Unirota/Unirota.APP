@@ -13,6 +13,11 @@ export default StyleSheet.create({
         margin: 10,
         padding: 12
     },
+    userName: {
+        alignSelf: 'flex-start',
+        width: '60%',
+        color: 'black'
+    },
     whitText:{
         color:'white',
     }

@@ -10,11 +10,12 @@ import ProfilePage from './src/ui/Organisms/Profile'
 import SearchGroupPage from './src/ui/Organisms/Search'
 import RegisterPage from './src/ui/Organisms/Register'
 import Loading from './src/ui/Atoms/Loading'
+import ChatPage from './src/ui/Organisms/Chat';
+import RegisterGroupPage from './src/ui/Organisms/RegisterGroup'
 import FaqPage from './src/ui/Organisms/Faq'
 import EditProfilePage from './src/ui/Organisms/EditProfile'
-import ChatPage from './src/ui/Organisms/Chat';
-import RegisterGroupPage from './src/ui/Organisms/RegisterDriver'
 import GroupListPage from './src/ui/Organisms/GroupList'
+
 
 
 const Stack = createNativeStackNavigator()
@@ -28,23 +29,23 @@ export default class App extends Component {
   }
 
   async componentDidMount() {
-    // const isAuthorized = await AppService.AutomaticLogin()
-    // this.setState({ isAuthorized })
+    const isAuthorized = await AppService.AutomaticLogin()
+    this.setState({ isAuthorized })
   }
 
   render() {
-    // const { isAuthorized } = this.state
+    const { isAuthorized } = this.state
 
-    // if (isAuthorized === null) {
-    //   return <Loading />
-    // }
+    if (isAuthorized === null) {
+       return <Loading />
+     }
 
-    // let initialRoute = isAuthorized ? 'HomePage' : 'LoginPage'
+     let initialRoute = isAuthorized ? 'HomePage' : 'LoginPage'
 
     return (
       <FontProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName={`GroupListPage`}>
+          <Stack.Navigator initialRouteName={initialRoute}>
             <Stack.Screen
               name="LoginPage"
               component={LoginPage}
@@ -91,8 +92,8 @@ export default class App extends Component {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="EditProfilePage"
-              component={EditProfilePage}
+              name="RegisterDriverPage"
+              component={RegisterDriverPage}
               options={{ headerShown: false }}
             />
             <Stack.Screen
