@@ -22,8 +22,14 @@ export default StyleSheet.create({
     height: 2,
     backgroundColor: '#007DF0',
     marginHorizontal: 13,
-    marginTop: 28,
+    marginTop: 28,  
+  },
 
-    
+  greyLineRegister: {
+    width: '78%',
+    height: 2,
+    backgroundColor: '#818181',
+    marginHorizontal: 13,
+    marginTop: 20,  
   },
 })
