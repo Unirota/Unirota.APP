@@ -6,7 +6,7 @@ import GroupListButtonRequests from "../Atoms/GroupListButtonRequests";
 export default class GroupListButtonRow extends Component {
     render() {
         return (
-            <View style={{flexDirection: `row`}}>
+            <View style={{flexDirection: `row`,marginBottom: 32}}>
                 <GroupListButtonInvites />
                 <GroupListButtonRequests />
             </View>
