@@ -16,6 +16,7 @@ import FaqPage from './src/ui/Organisms/Faq'
 import EditProfilePage from './src/ui/Organisms/EditProfile'
 import GroupRequestPage from './src/ui/Organisms/GroupRequest'
 import GroupListPage from './src/ui/Organisms/GroupList'
+import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
 
 const Stack = createNativeStackNavigator()
 
@@ -36,10 +37,10 @@ export default class App extends Component {
     const { isAuthorized } = this.state
 
     if (isAuthorized === null) {
-       return <Loading />
-     }
+      return <Loading />
+    }
 
-     let initialRoute = isAuthorized ? 'HomePage' : 'LoginPage'
+    let initialRoute = isAuthorized ? 'HomePage' : 'LoginPage'
 
     return (
       <FontProvider>
@@ -63,6 +64,11 @@ export default class App extends Component {
             <Stack.Screen
               name="DriverProfilePage"
               component={DriverProfilePage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="EditProfilePage"
+              component={EditProfilePage}
               options={{ headerShown: false }}
             />
             <Stack.Screen
@@ -101,12 +107,11 @@ export default class App extends Component {
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
-            <Stack.Screen
-              name="GroupListPage"
-              component={GroupListPage}
-              options={{ headerShown: false }}
-            />
-          </Stack.Navigator>  
+          <Stack.Screen
+            name="GroupListPage"
+            component={GroupListPage}
+            options={{ headerShown: false }}
+          />
         </NavigationContainer>
       </FontProvider>
     )
