@@ -11,7 +11,13 @@ import SearchGroupPage from './src/ui/Organisms/Search'
 import Loading from './src/ui/Atoms/Loading'
 import FaqPage from './src/ui/Organisms/Faq'
 import InvitePage from './src/ui/Organisms/Invite'
-const Stack = createNativeStackNavigator();
+import EditProfilePage from './src/ui/Organisms/EditProfile'
+import GroupRequestPage from './src/ui/Organisms/GroupRequest'
+import GroupListPage from './src/ui/Organisms/GroupList'
+import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
+
+const Stack = createNativeStackNavigator()
+
 
 export default class App extends Component {
   constructor(props) {
@@ -62,6 +68,11 @@ export default class App extends Component {
               options={{ headerShown: false }}
             />
             <Stack.Screen
+              name="EditProfilePage"
+              component={EditProfilePage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
               name="SearchGroupPage"
               component={SearchGroupPage}
               options={{ headerShown: false }}
@@ -76,7 +87,17 @@ export default class App extends Component {
               component={InvitePage}
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="GroupRequestPage"
+              component={GroupRequestPage}
+              options={{ headerShown: false }}
+            />
           </Stack.Navigator>
+          <Stack.Screen
+            name="GroupListPage"
+            component={GroupListPage}
+            options={{ headerShown: false }}
+          />
         </NavigationContainer>
       </FontProvider>
     )

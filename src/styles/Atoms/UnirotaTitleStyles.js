@@ -8,7 +8,7 @@ export default StyleSheet.create({
     marginBottom: 32
   },
   commonText: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: '800',
     fontFamily: 'LexendExa-ExtraBold',
     marginTop: 28,
