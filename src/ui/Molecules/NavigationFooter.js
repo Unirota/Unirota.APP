@@ -60,7 +60,10 @@ export default class NavigationFooter extends Component {
           <Icon name="search" size={30} color="white" height={50} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={NavigationFooterStyles.button}>
+        <TouchableOpacity style={NavigationFooterStyles.button} onPress={() => {
+          if (this.state.currentPage !== 'ChatPage')
+            navigation.navigate('ChatPage')
+        }}>
           <Icon name="message" size={30} color="white" height={50} />
         </TouchableOpacity>
 
