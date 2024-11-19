@@ -5,43 +5,62 @@ import ProfileService from '../../services/ProfileService'
 import styles from '../../styles/Molecules/ProfileMenuStyles'
 import BlueLine from '../Atoms/BlueLine'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import Loading from '../Atoms/Loading'
 
 export default class ProfileMenu extends Component {
-  handleMenuPress = async (id) => {
-    if (id === '5') {
-      await AsyncStorage.clear();
-      this.props.navigation.navigate('LoginPage'); 
-    } else {
-      switch (id) {
-        case '1':
-          this.props.navigation.navigate('HomePage');
-          break;
-        case '2':
-          this.props.navigation.navigate('HomePage');
-          break;
-        case '3':
-          this.props.navigation.navigate('HomePage');
-          break;
-        case '4':
-          this.props.navigation.navigate('HomePage');
-          break;
-        default:
-          console.log('Unhandled menu item:', id);
-      }
-    }
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuItems: [],
+      loading: true,
+    };
+  }
+
+  
+  handleLogout() {
+    AsyncStorage.clear().then(() => {
+      this.props.navigation.reset({
+        index: 0,
+        routes: [{ name: 'LoginPage' }],
+      });
+    });
+  }
+  
+  renderMenuItem({ item, index }) {
+    return (
+      <ProfileMenuItem
+      data={item}
+      isFirstItem={index === 0}
+      onLogout={item.id === '5' ? this.handleLogout : null}
+      />
+    );
+  }
+  
+  componentDidMount() {
+    const menuItems = ProfileService.getMenuItems();
+    this.setState({ menuItems, loading: false });
+  }
 
   render() {
-    const menuItems = ProfileService.getMenuItems()
+    const { menuItems, loading } = this.state;
+
+    if (loading) {
+      return (
+        <View style={styles.container}>
+          <Loading/>
+        </View>
+      );
+    }
+
     return (
       <View style={styles.container}>
         <BlueLine />
         <FlatList
           data={menuItems}
-          renderItem={({ item, index }) => (
-            <ProfileMenuItem data={item} isFirstItem={index === 0} onPress={this.handleMenuPress}/>
-          )}
-          keyExtractor={item => item.id}
+          renderItem={this.renderMenuItem}
+          keyExtractor={(item) =>{
+            return item.id;
+          }}
         />
       </View>
     )

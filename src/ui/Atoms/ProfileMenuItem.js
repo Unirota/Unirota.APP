@@ -4,14 +4,24 @@ import { Ionicons } from '@expo/vector-icons'
 import styles from '../../styles/Atoms/ProfileMenuItemStyles'
 
 export default class ProfileMenuItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      icon: this.props.data.icon,
+      title: this.props.data.title,
+      id: this.props.data.id,
+      isFirstItem: this.props.isFirstItem,
+      onLogout: this.props.onLogout,
+    };
+  }
+
   render() {
-    const { icon, title, id } = this.props.data
-    const { isFirstItem, onPress  } = this.props
+    const { icon, title, id, isFirstItem, onLogout } = this.state;
 
     return (
       <TouchableOpacity
         style={[styles.container, isFirstItem && styles.firstItem]}
-        onPress={() => onPress(id)}
+        onPress={onLogout}
       >
         <Ionicons
           name={icon}

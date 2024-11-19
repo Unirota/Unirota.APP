@@ -46,7 +46,7 @@ export default class ProfilePage extends Component {
         <View style={styles.container}>
           <UnirotaTitle />
           <ProfileHeader headerData={ headerData }/>
-          <ProfileMenu />
+          <ProfileMenu navigation={this.props.navigation}/>
         </View>
         <NavigationFooter navigation={this.props.navigation}/>
       </LinearGradient>
