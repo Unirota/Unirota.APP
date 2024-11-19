@@ -21,6 +21,11 @@ export default new (class DriverProfileService {
         icon: 'help-circle',
         title: 'FAQ',
       },
+      {
+        id: '5',
+        icon: 'exit-outline',
+        title: 'Sair'
+      }
     ]
   }
 })()

@@ -26,4 +26,7 @@ export default StyleSheet.create({
   firstItemText: {
     color: '#FFFFFF',
   },
+  colorRedText: {
+    color: 'red',
+  },
 })
