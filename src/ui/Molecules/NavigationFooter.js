@@ -71,7 +71,7 @@ export default class NavigationFooter extends Component {
           if (isUserDriver && this.state.currentPage !== 'DriverProfilePage')
             navigation.replace('DriverProfilePage')
           else if (!isUserDriver && this.state.currentPage !== 'ProfilePage')
-              navigation.replace('ProfilePage')
+            navigation.replace('ProfilePage')
         }}>
           <Icon
             name="person"

@@ -1,19 +1,20 @@
 import { Component } from 'react'
-import { View, FlatList } from 'react-native'
-import ProfileMenuItem from '../Atoms/ProfileMenuItem'
-import DriverProfileService from '../../services/DriverProfileService'
+import { View } from 'react-native'
 import styles from '../../styles/Molecules/ProfileMenuStyles'
 import BlueLine from '../Atoms/BlueLine'
-import Loading from '../Atoms/Loading'
+import { TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { Text } from 'react-native-web';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default class DriverProfileMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      menuItems: [],
-      loading: true,
-    };
-    this.handleLogout = this.handleLogout.bind(this)
+    this.handleLogout = this.handleLogout.bind(this);
+    this.onRidesClick = this.onRidesClick.bind(this);
+    this.onMyInfoClick = this.onMyInfoClick.bind(this);
+    this.onCreateGroupClick = this.onCreateGroupClick.bind(this);
+    this.onFAQClick = this.onFAQClick.bind(this);
   }
 
   handleLogout() {
@@ -25,40 +26,126 @@ export default class DriverProfileMenu extends Component {
     });
   }
 
-  renderMenuItem({ item, index }) {
-    return (
-      <ProfileMenuItem
-      data={item}
-      isFirstItem={index === 0}
-      onLogout={item.id === '5' ? this.handleLogout : null}
-      />
-    );
+  onRidesClick() {
+    console.log('foi pra tela de corridas')
   }
 
-  componentDidMount() {
-    const menuItems = DriverProfileService.getMenuItems();
-    this.setState({ menuItems, loading: false });
+  onMyInfoClick() {
+    console.log('foi pra tela minhas informações')
+  }
+
+  onCreateGroupClick() {
+    this.props.navigation.navigate('RegisterDriverPage');
+  }
+
+  onFAQClick() {
+    this.props.navigation.navigate('FaqPage');
   }
   
   render() {
-    const { menuItems, loading } = this.state;
-    console.log(menuItems, loading)
-
-    if (loading) {
-      return (
-        <View style={styles.container}>
-          <Loading/>
-        </View>
-      );
-    }
     return (
       <View style={styles.container}>
         <BlueLine />
-        <FlatList
-          data={menuItems}
-          renderItem={this.renderMenuItem}
-          keyExtractor={item => item.id}
-        />
+        {/* Criar grupo */}
+        <TouchableOpacity
+          style={[styles.buttonContainer, styles.buttonFirstItem]}
+          onPress={this.onCreateGroupClick}
+        >
+          <Ionicons
+            name={'people'}
+            size={24}
+            color={'#fff'}
+            style={styles.buttonIcon}
+          />
+          <Text style={[styles.buttonText, styles.buttonFirstItemText]}>
+            Criar grupo de carona
+          </Text>
+          <Ionicons
+            name="chevron-forward"
+            size={24}
+            color={'#fff'}
+          />
+        </TouchableOpacity>
+        {/* CORRIDAS */}
+        <TouchableOpacity
+          style={[styles.buttonContainer]}
+          onPress={this.onRidesClick}
+        >
+          <Ionicons
+            name={'car'}
+            size={24}
+            color={'#1E1E1E'}
+            style={styles.buttonIcon}
+          />
+          <Text style={[styles.buttonText]}>
+            Corridas
+          </Text>
+          <Ionicons
+            name="chevron-forward"
+            size={24}
+            color={'#1E1E1E'}
+          />
+        </TouchableOpacity>
+        {/* minhas informações */}
+        <TouchableOpacity
+          style={[styles.buttonContainer]}
+          onPress={this.onMyInfoClick}
+        >
+          <Ionicons
+            name={'person'}
+            size={24}
+            color={'#1E1E1E'}
+            style={styles.buttonIcon}
+          />
+          <Text style={[styles.buttonText]}>
+            Minhas informações
+          </Text>
+          <Ionicons
+            name="chevron-forward"
+            size={24}
+            color={'#1E1E1E'}
+          />
+        </TouchableOpacity>
+        {/* FAQ */}
+        <TouchableOpacity
+          style={[styles.buttonContainer]}
+          onPress={this.onFAQClick}
+        >
+          <Ionicons
+            name={'help-circle'}
+            size={24}
+            color={'#1E1E1E'}
+            style={styles.buttonIcon}
+          />
+          <Text style={[styles.buttonText]}>
+            FAQ
+          </Text>
+          <Ionicons
+            name="chevron-forward"
+            size={24}
+            color={'#1E1E1E'}
+          />
+        </TouchableOpacity>
+        {/* SAIR */}
+        <TouchableOpacity
+          style={[styles.buttonContainer]}
+          onPress={this.handleLogout}
+        >
+          <Ionicons
+            name={'exit-outline'}
+            size={24}
+            color={'red'}
+            style={styles.buttonIcon}
+          />
+          <Text style={[styles.buttonText, styles.buttonColorRedText]}>
+            Sair
+          </Text>
+          <Ionicons
+            name="chevron-forward"
+            size={24}
+            color={'red'}
+          />
+        </TouchableOpacity>
       </View>
     )
   }
