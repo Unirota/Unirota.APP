@@ -92,12 +92,12 @@ export default class App extends Component {
               component={GroupRequestPage}
               options={{ headerShown: false }}
             />
-          </Stack.Navigator>
-          <Stack.Screen
-            name="GroupListPage"
-            component={GroupListPage}
-            options={{ headerShown: false }}
-          />
+            </Stack.Navigator>
+            <Stack.Screen
+              name="GroupListPage"
+              component={GroupListPage}
+              options={{ headerShown: false }}
+            />
         </NavigationContainer>
       </FontProvider>
     )
