@@ -46,7 +46,7 @@ export default class PageInvite extends Component {
       )
     }
 
-    if(groups === null) {
+    if(groups.length === 0) {
       return(
         <View style={InvitePageStyles.container}>
           <View style={InvitePageStyles.titleSection}>
@@ -54,7 +54,7 @@ export default class PageInvite extends Component {
             <Text style={InvitePageStyles.title}>Convites</Text>
           </View>
           <View>
-            <Text>
+          <Text style={{color: 'white', textAlign: 'center', justifyContent: 'center', alignSelf: 'center'}}>
               Usuário não possui convites.
             </Text>
           </View>

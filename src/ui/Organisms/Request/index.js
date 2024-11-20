@@ -12,7 +12,7 @@ export default class RequestPage extends Component {
       <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
         <View style={styles.container}>
           <RequestUnirotaTitle/>
-          <RequestInvite/>
+          <RequestInvite navigation={this.props.navigation}/>
         </View>
         <NavigationFooter navigation={this.props.navigation} />
       </LinearGradient>

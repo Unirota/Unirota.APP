@@ -26,7 +26,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     padding: 16,
   },
-  sendIcon: {
+  mailIcon: {
     marginBottom: 8,
   },
   title: {
