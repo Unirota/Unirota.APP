@@ -27,12 +27,12 @@ export default class HourGroupInput extends Component {
 
     render() {
         return (
-            <View style={LoginInputStyles.container}>
+            <View style={[LoginInputStyles.container, {alignSelf: 'center'}]}>
                 <TouchableOpacity
                     onPress={() => this.setState({ showTimePicker: true })}
                 >
                     <Text style={RegisterInputStyles.inputDate}>
-                        {this.state.selectedTime ? this.formatTime(this.state.selectedTime) : "Data de início"}
+                        {this.state.selectedTime ? this.formatTime(this.state.selectedTime) : "Hora de início"}
                     </Text>
                 </TouchableOpacity>
                 {this.state.showTimePicker && (

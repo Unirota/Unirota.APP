@@ -20,7 +20,7 @@ export default class RegisterGroupPage extends Component {
                 locations={[0.0, 0.6]}
                 style={styles.gradient}
             >
-            <FormRegisterGroup/>
+            <FormRegisterGroup navigation={this.props.navigation}/>
                 {/* <FormLogin goToHome={this.goToHome} /> */}
                 
             </LinearGradient>
