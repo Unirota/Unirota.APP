@@ -1,10 +1,9 @@
 import { Component } from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import styles from '../../styles/Molecules/ProfileMenuStyles'
 import BlueLine from '../Atoms/BlueLine'
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Text } from 'react-native-web';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default class DriverProfileMenu extends Component {

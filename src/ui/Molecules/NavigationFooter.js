@@ -9,23 +9,22 @@ export default class NavigationFooter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isUserDriver: null,
-      currentPage: ""
+      isUserDriver: false
     }
   }
 
   async checkUserIsDriver() {
     let isUserDriver = await AsyncStorage.getItem('isUserDriver')
-    if (isUserDriver === null)
-      isUserDriver = false
+    if (isUserDriver === null){
+      isUserDriver = false;
+    } else {
+      isUserDriver = JSON.parse(isUserDriver);
+    }
     this.setState({ isUserDriver });
   }
 
   async componentDidMount() {
     await this.checkUserIsDriver();
-    this.setState({
-      currentPage: this.props.navigation.getState().routes[0].name
-    })
   }
 
   render() {
@@ -41,8 +40,9 @@ export default class NavigationFooter extends Component {
       <View style={NavigationFooterStyles.footer}>
       
         <TouchableOpacity style={NavigationFooterStyles.button} onPress={() => {
-          if (this.state.currentPage !== 'HomePage')
-            navigation.replace('HomePage')
+          const currentRoute = this.props.navigation.getState().routes[this.props.navigation.getState().index].name;
+          if (currentRoute !== 'HomePage')
+            navigation.navigate('HomePage')
         }}>
           <Icon
             name="home"
@@ -54,24 +54,31 @@ export default class NavigationFooter extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity style={NavigationFooterStyles.button} onPress={() => {
-          if (this.state.currentPage !== 'SearchGroupPage')
-            navigation.replace('SearchGroupPage')
+          const currentRoute = this.props.navigation.getState().routes[this.props.navigation.getState().index].name;
+          if (currentRoute !== 'SearchGroupPage'){
+            navigation.navigate('SearchGroupPage')
+          }
         }}>
           <Icon name="search" size={30} color="white" height={50} />
         </TouchableOpacity>
 
         <TouchableOpacity style={NavigationFooterStyles.button} onPress={() => {
-          if (this.state.currentPage !== 'GroupListPage')
+          const currentRoute = this.props.navigation.getState().routes[this.props.navigation.getState().index].name;
+          if (currentRoute !== 'GroupListPage'){
             navigation.navigate('GroupListPage')
+          }
         }}>
           <Icon name="message" size={30} color="white" height={50} />
         </TouchableOpacity>
 
         <TouchableOpacity style={NavigationFooterStyles.button} onPress={() => {
-          if (isUserDriver && this.state.currentPage !== 'DriverProfilePage')
-            navigation.replace('DriverProfilePage')
-          else if (!isUserDriver && this.state.currentPage !== 'ProfilePage')
-            navigation.replace('ProfilePage')
+          const currentRoute = this.props.navigation.getState().routes[this.props.navigation.getState().index].name;
+          if (isUserDriver && currentRoute !== 'DriverProfilePage'){
+            navigation.navigate('DriverProfilePage')
+          }
+          else if (!isUserDriver && currentRoute !== 'ProfilePage'){
+            navigation.navigate('ProfilePage')
+          }
         }}>
           <Icon
             name="person"
