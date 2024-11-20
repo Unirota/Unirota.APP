@@ -35,7 +35,7 @@ export default class DriverProfileMenu extends Component {
   }
 
   onCreateGroupClick() {
-    this.props.navigation.navigate('RegisterDriverPage');
+    this.props.navigation.navigate('RegisterGroupPage');
   }
 
   onFAQClick() {
