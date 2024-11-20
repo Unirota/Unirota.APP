@@ -13,7 +13,6 @@ export default class RequestGroupModal extends Component {
   }
 
   handleAccept = () => {
-    // Lógica para verificar se o convite está pendente
     console.log('Convite pendente')
   }
 
@@ -42,25 +41,25 @@ export default class RequestGroupModal extends Component {
             
             <Text style={RequestGroupModalStyles.modalText}>
               <Text style={RequestGroupModalStyles.boldText}>Motorista:</Text> {group.motorista} {"\n"}
-              {group.participantes} participantes
+              {group.participantes} {group.participantes === 1 ? 'participante' : 'participantes'}
             </Text>
 
             {/* Destino e nota */}
             <View style={RequestGroupModalStyles.infoBox}>
               <View style={RequestGroupModalStyles.infoRow}>
                 <Icon name="location-on" size={20} color="#FFF" style={RequestGroupModalStyles.icon} />
-                <Text style={RequestGroupModalStyles.infoText}>{group.destino}</Text>
+                <Text style={RequestGroupModalStyles.infoText}>{group.destino === "" ? "Não definido" : group.destino}</Text>
               </View>
               <View style={RequestGroupModalStyles.infoRow}>
                 <Icon name="access-time" size={20} color="#FFF" style={RequestGroupModalStyles.icon} />
-                <Text style={RequestGroupModalStyles.infoText}>{group.horaInicio}</Text>
+                <Text style={RequestGroupModalStyles.infoText}>{new Date(group.horaInicio).getHours()}{':'}{new Date(group.horaInicio).getMinutes()}</Text>
                 <View style={{ marginHorizontal: 20 }} />
                 <Icon name="star" size={20} color="#FFD700" style={RequestGroupModalStyles.icon} />
                 <Text style={RequestGroupModalStyles.infoText}>{group.nota}</Text>
               </View>
             </View>
             <Text style={RequestGroupModalStyles.footerText}>
-              Grupo criado em {group.dataCriacao}
+              Grupo criado em {new Date(group.dataCriacao).toLocaleDateString()}
             </Text>
 
             {/* Container para os botões */}

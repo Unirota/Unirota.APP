@@ -15,19 +15,7 @@ export default class RequestCard extends Component {
 }
 
   formatTime(time) {
-    if (!time) return '';
-    
-    if (typeof time === 'string' && time.match(/^\d{2}:\d{2}$/)) {
-      return time;
-    }
-    
-    try {
-      const [hours, minutes] = time.split(':');
-      return `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`;
-    } catch (error) {
-      console.error('Erro ao formatar hora:', error);
-      return 'Horário indisponível';
-    }
+    return `${new Date(time).getHours()}:${new Date(time).getMinutes()}`;
   }
 
   toggleModal = () => {
