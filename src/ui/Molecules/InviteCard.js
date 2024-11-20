@@ -4,8 +4,17 @@ import GroupAvatar from '../Atoms/SearchGroupAvatar'
 import GroupInfo from '../Atoms/SearchGroupInfo'
 import InviteCardStyles from '../../styles/Molecules/InviteCardStyles'
 import InviteInfoButton from '../Atoms/InviteInfoButton'
+import InfoGroupModal from './InfoGroupModal'
+
 
 export default class InviteCard extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isModalVisible: false,
+  }
+}
+  
   formatTime(time) {
     if (!time) return '';
     
@@ -22,8 +31,13 @@ export default class InviteCard extends Component {
     }
   }
 
+  toggleModal = () => {
+    this.setState((prevState) => ({ isModalVisible: !prevState.isModalVisible }));
+  };
+
   render() {
     const { group } = this.props
+    const { isModalVisible } = this.state
     const formattedTime = this.formatTime(group.horaInicio)
 
     return (
@@ -38,11 +52,18 @@ export default class InviteCard extends Component {
         <View style={InviteCardStyles.rightContent}>
           <Text style={InviteCardStyles.timeText}>{formattedTime}</Text>
           <View style={InviteCardStyles.buttonsContainer}>
-            <TouchableOpacity>
-              <InviteInfoButton/>
+            <TouchableOpacity onPress={this.toggleModal}>
+              <InviteInfoButton />
             </TouchableOpacity>
           </View>
         </View>
+
+        <InfoGroupModal
+          group={group}
+          isVisible={isModalVisible}
+          onClose={this.toggleModal}
+        />
+        
       </View>
     )
   }
