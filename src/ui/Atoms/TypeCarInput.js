@@ -28,6 +28,8 @@ export default class TypeCarInput extends Component {
     };
     selectState = (state) => {
         this.setState({ selectedState: state, selectedColor: state.name });
+        console.log(1)
+        this.props.onChangeText(state.name)
         this.closeStatesModal();
     };
     render() {
@@ -36,7 +38,7 @@ export default class TypeCarInput extends Component {
                 <View style={CarRegisterStyles.container}>
                     <TouchableOpacity onPress={this.openStatesModal}>
                         <Text style= {CarRegisterStyles.input}>
-                            {this.state.selectedState ? this.state.selectedState.name : 'Carroceria do veículo                  ▼'}
+                            {this.state.selectedState ? this.state.selectedState.name : 'Carroceria do veículo                                 ▼'}
                         </Text>
                     </TouchableOpacity>
                 </View>

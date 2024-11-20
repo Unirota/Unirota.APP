@@ -14,6 +14,7 @@ export default class CarNumberInput extends Component {
                     placeholderTextColor='black'
                     placeholder="Placa do veículo"
                     keyboardType="text"
+                    onChangeText={this.props.onChangeText}
                 />
             </View>
         )

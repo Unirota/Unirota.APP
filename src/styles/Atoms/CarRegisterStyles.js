@@ -33,7 +33,7 @@ export default StyleSheet.create({
     },
     input: {
         fontWeight: 'bold',
-        fontSize: 17,
+        fontSize: 14,
         backgroundColor: 'white',
         width: 300,
         height: 50,
