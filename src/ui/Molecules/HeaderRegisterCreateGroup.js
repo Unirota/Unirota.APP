@@ -14,12 +14,12 @@ export default class HeaderRegisterCreateGroup extends Component {
                     HeaderLoginStyle.commonTextRegisterDriver,
                     UnirotaTitleStyles.whiteText,
                     HeaderLoginStyle.titleLogin]}>
-                    Cadastro{' '}  
+                    Criar grupo de{' '}  
                     <Text style={[
                         HeaderLoginStyle.commonTextRegisterDriver,
                         UnirotaTitleStyles.blueText,
                         HeaderLoginStyle.titleLogin]}>
-                        Motorista
+                        Carona
                     </Text>
                 </Text>
 
