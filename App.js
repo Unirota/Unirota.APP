@@ -16,9 +16,9 @@ import GroupRequestPage from './src/ui/Organisms/GroupRequest'
 import GroupListPage from './src/ui/Organisms/GroupList'
 import RequestPage from './src/ui/Organisms/Request'
 import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
+import RegisterGroupPage from './src/ui/Organisms/RegisterGroup'
 
 const Stack = createNativeStackNavigator()
-
 
 export default class App extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ export default class App extends Component {
     return (
       <FontProvider>
         <NavigationContainer>
-        <Stack.Navigator initialRouteName={InitialRoute}>
+        <Stack.Navigator initialRouteName={initialRoute}>
             <Stack.Screen
               name="LoginPage"
               component={LoginPage}
@@ -90,6 +90,16 @@ export default class App extends Component {
             <Stack.Screen
               name="GroupRequestPage"
               component={GroupRequestPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="RegisterGroupPage"
+              component={RegisterGroupPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="RegisterDriverPage"
+              component={RegisterDriverPage}
               options={{ headerShown: false }}
             />
             <Stack.Screen

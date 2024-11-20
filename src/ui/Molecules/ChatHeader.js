@@ -13,12 +13,9 @@ export default class ChatHeader extends Component {
     render() {
         return (
             <View style={ChatHeaderStyles.groupContainer} >
-                
-                {/* TODO: CHAMAR ATOMO DO ICON */}
                 <ChatIcon/>
                 <View style={ChatTitleStyles.commonText}>
-                    {/* TODO: CHAMAR ATOMOS DO TEXTO */}
-                    <ChatTitle/>
+                    <ChatTitle nome={this.props.nome}/>
                 </View>
                 <ChatArrowDown/>
 

@@ -13,7 +13,7 @@ export default class ChatContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            grupoId: 3,
+            grupoId: 0,
             messages: null,
             usuarioId: 0
         };
@@ -24,12 +24,12 @@ export default class ChatContainer extends Component {
 
     async ObterTodasMensagens(grupoId) {
         const dados = await MensagemService.ObterMensagens(grupoId);
-        return dados.data;
+        return dados?.data;
     }
 
     async EnviarMensagem(mensagem, grupoId) {
         const dados = await MensagemService.SendMessage(mensagem, grupoId);
-        return dados.data;
+        return dados?.data;
     }
 
     async componentDidMount() {
@@ -44,13 +44,13 @@ export default class ChatContainer extends Component {
             .build();
 
         try {
-            let mensagens = await this.ObterTodasMensagens(this.state.grupoId);
+            let mensagens = await this.ObterTodasMensagens(this.props.grupoId);
             this.setState({messages: [...mensagens]})
             
             await this.connection.start();
             console.log("signalR connected");
 
-            await this.connection.invoke("EntrarGrupo", this.state.grupoId);
+            await this.connection.invoke("EntrarGrupo", this.props.grupoId);
 
             this.connection.on("ReceiveMessage", (usuarioId, nomeUsuario, conteudo) => {
                 const newMessage = { usuarioId, nomeUsuario, conteudo }
@@ -75,7 +75,7 @@ export default class ChatContainer extends Component {
 
     sendMessage = async (conteudo) => {
         try {
-            await this.EnviarMensagem(conteudo, this.state.grupoId);
+            await this.EnviarMensagem(conteudo, this.props.grupoId);
         } catch(error) {
             console.error("Erro ao enviar mensagem: ", error);
         }
@@ -95,6 +95,7 @@ export default class ChatContainer extends Component {
 
     render() {
         const { messages, usuarioId } = this.state;
+
         if(messages === null || usuarioId === 0) {
             return (
                 <Loading/>

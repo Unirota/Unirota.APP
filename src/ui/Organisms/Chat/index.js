@@ -6,13 +6,14 @@ import NavigationFooter from '../../Molecules/NavigationFooter';
 
 export default class ChatPage extends Component {
     render() {
+        const {id, nome} = this.props.route.params;
         return (
             <LinearGradient
                 colors={['#00112B', '#003A90']}
                 style={{flex: 1}}
             >
-                <ChatHeader/>     
-                <ChatContainer/>
+                <ChatHeader nome={nome}/>
+                <ChatContainer grupoId={id}/>
             </LinearGradient>
             
         )
