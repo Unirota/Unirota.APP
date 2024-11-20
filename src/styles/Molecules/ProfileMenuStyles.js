@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     marginHorizontal: 10,
-    marginTop: 60,
+    marginTop: 40,
     marginBottom: 105,
   },
   buttonContainer: {
