@@ -11,6 +11,7 @@ export default class DescriptionGroupInput extends Component {
                     placeholderTextColor='black'
                     placeholder="Descrição (opcional)"
                     keyboardType="text"
+                    onChangeText={this.props.onChangeText}
                 />
             </View>
         )
