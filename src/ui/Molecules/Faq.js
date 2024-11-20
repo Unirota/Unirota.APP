@@ -67,7 +67,7 @@ export default class FAQComponent extends Component {
         <Text style={FaqStyles.footerText}>
           Para mais dúvidas, entre em contato:
         </Text>
-        <Text style={FaqStyles.email}>unirota@unirota.com</Text>
+        <Text style={FaqStyles.email}>suporte@unirota.com</Text>
       </View>
     )
   }

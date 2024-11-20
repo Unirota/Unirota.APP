@@ -70,8 +70,8 @@ export default class NavigationFooter extends Component {
         <TouchableOpacity style={NavigationFooterStyles.button} onPress={() => {
           if (isUserDriver && this.state.currentPage !== 'DriverProfilePage')
             navigation.replace('DriverProfilePage')
-          else if (this.state.currentPage !== 'ProfilePage')
-              navigation.replace('ProfilePage')
+          else if (!isUserDriver && this.state.currentPage !== 'ProfilePage')
+            navigation.replace('ProfilePage')
         }}>
           <Icon
             name="person"
