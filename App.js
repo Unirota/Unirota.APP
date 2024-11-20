@@ -48,7 +48,7 @@ export default class App extends Component {
     return (
       <FontProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName={"GroupEditPage"}>
+          <Stack.Navigator initialRouteName={"HomePage"}>
             <Stack.Screen
               name="LoginPage"
               component={LoginPage}
