@@ -8,16 +8,14 @@ import HomePage from './src/ui/Organisms/Home'
 import DriverProfilePage from './src/ui/Organisms/DriverProfile'
 import ProfilePage from './src/ui/Organisms/Profile'
 import SearchGroupPage from './src/ui/Organisms/Search'
-import RegisterPage from './src/ui/Organisms/Register'
 import Loading from './src/ui/Atoms/Loading'
-import ChatPage from './src/ui/Organisms/Chat';
-import RegisterGroupPage from './src/ui/Organisms/RegisterGroup'
 import FaqPage from './src/ui/Organisms/Faq'
+import InvitePage from './src/ui/Organisms/Invite'
 import EditProfilePage from './src/ui/Organisms/EditProfile'
+import GroupRequestPage from './src/ui/Organisms/GroupRequest'
 import GroupListPage from './src/ui/Organisms/GroupList'
 import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
-
-
+import RegisterGroupPage from './src/ui/Organisms/RegisterGroup'
 
 const Stack = createNativeStackNavigator()
 
@@ -38,15 +36,17 @@ export default class App extends Component {
     const { isAuthorized } = this.state
 
     if (isAuthorized === null) {
-      return <Loading />
+      return (
+        <Loading />
+      )
     }
 
-    let initialRoute = isAuthorized ? 'HomePage' : 'LoginPage'
+    let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
 
     return (
       <FontProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName={'RegisterDriverPage'}>
+          <Stack.Navigator initialRouteName={'RegisterGroupPage'}>
             <Stack.Screen
               name="LoginPage"
               component={LoginPage}
@@ -68,6 +68,11 @@ export default class App extends Component {
               options={{ headerShown: false }}
             />
             <Stack.Screen
+              name="EditProfilePage"
+              component={EditProfilePage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
               name="SearchGroupPage"
               component={SearchGroupPage}
               options={{ headerShown: false }}
@@ -78,13 +83,13 @@ export default class App extends Component {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="RegisterPage"
-              component={RegisterPage}
+              name="InvitePage"
+              component={InvitePage}
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="ChatPage"
-              component={ChatPage}
+              name="GroupRequestPage"
+              component={GroupRequestPage}
               options={{ headerShown: false }}
             />
             <Stack.Screen

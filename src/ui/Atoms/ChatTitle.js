@@ -8,19 +8,13 @@ export default class ChatTitle extends Component {
         return(
             <View style={ChatTitleStyles.titleContainer}>
                  
-                 <Text style={[
-                 ChatTitleStyles.commonText,
-                  ChatTitleStyles.whiteText]}>
-                  Grupo Alpha
+              <Text style={[
+                ChatTitleStyles.commonText,
+                ChatTitleStyles.whiteText]}>
+                {this.props.nome}
               </Text>
               <View style={ChatSubTitleStyles.chatSubtitle}></View>
-              <Text style={[
-                ChatSubTitleStyles.commonText,
-                ChatSubTitleStyles.whiteText]}>
-                Thiago Alves, Maria Sanches, Zé..
-              </Text>
-                </View>
-
+            </View>
         )
     }
 }
