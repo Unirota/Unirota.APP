@@ -1,10 +1,9 @@
 import { Component } from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import styles from '../../styles/Molecules/ProfileMenuStyles'
 import BlueLine from '../Atoms/BlueLine'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { TouchableOpacity } from 'react-native'
-import { Text } from 'react-native-web'
 import { Ionicons } from '@expo/vector-icons';
 
 export default class ProfileMenu extends Component {
@@ -15,7 +14,6 @@ export default class ProfileMenu extends Component {
     this.onMyInfoClick = this.onMyInfoClick.bind(this);
     this.onCreateGroupClick = this.onDriverClick.bind(this);
     this.onFAQClick = this.onFAQClick.bind(this);
-    console.log('montou sem ser motorista')
   }
 
   onDriverClick() {

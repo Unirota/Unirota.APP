@@ -17,6 +17,7 @@ import GroupListPage from './src/ui/Organisms/GroupList'
 import RequestPage from './src/ui/Organisms/Request'
 import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
 import RegisterGroupPage from './src/ui/Organisms/RegisterGroup'
+import ChatPage from './src/ui/Organisms/Chat'
 
 const Stack = createNativeStackNavigator()
 
@@ -110,6 +111,11 @@ export default class App extends Component {
             <Stack.Screen
               name="RequestPage"
               component={RequestPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ChatPage"
+              component={ChatPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

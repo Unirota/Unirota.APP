@@ -8,7 +8,7 @@ export default class DestinyGroupInput extends Component {
     }
     render() {
         return (
-            <View style={LoginInputStyles.container}>
+            <View style={[LoginInputStyles.container, { alignSelf: 'center' }]}>
                 <TextInput
                     style={LoginInputStyles.input}
                     placeholderTextColor='black'

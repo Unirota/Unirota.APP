@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import ProfileHeader from '../../Molecules/ProfileHeader'
 import ProfileMenu from '../../Molecules/ProfileMenu'
@@ -37,7 +37,13 @@ export default class ProfilePage extends Component {
     
     if (headerData === null) {
       return (
-        <Loading />
+        <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
+          <View style={styles.container}>
+            <UnirotaTitle />
+            <Loading />
+          </View>
+          <NavigationFooter navigation={this.props.navigation}/>
+        </LinearGradient>
       )
     }
 
