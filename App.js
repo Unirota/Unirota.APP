@@ -14,6 +14,7 @@ import InvitePage from './src/ui/Organisms/Invite'
 import EditProfilePage from './src/ui/Organisms/EditProfile'
 import GroupRequestPage from './src/ui/Organisms/GroupRequest'
 import GroupListPage from './src/ui/Organisms/GroupList'
+import RequestPage from './src/ui/Organisms/Request'
 import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
 import RegisterGroupPage from './src/ui/Organisms/RegisterGroup'
 
@@ -42,11 +43,10 @@ export default class App extends Component {
     }
 
     let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
-
     return (
       <FontProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName={'RegisterGroupPage'}>
+        <Stack.Navigator initialRouteName={initialRoute}>
             <Stack.Screen
               name="LoginPage"
               component={LoginPage}
@@ -105,6 +105,11 @@ export default class App extends Component {
             <Stack.Screen
               name="GroupListPage"
               component={GroupListPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="RequestPage"
+              component={RequestPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
