@@ -27,7 +27,7 @@ export default StyleSheet.create({
         width: 300,
         height: 50,
         borderRadius: 16,
-        padding: 16
+        padding: 12
     },
     inputNeighborhood: {
         flexDirection: 'row',
