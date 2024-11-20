@@ -3,7 +3,7 @@ export default new (class InviteService {
     {
       id: 1,
       nome: 'Grupo da Manhã',
-      destino: 'UniCesumar',
+      destino: 'UniCesumar - Maringá',
       nota: 4.5,
       horaInicio: '07:30',
       onAccept: () => console.log('Convite aceito'),
@@ -12,7 +12,7 @@ export default new (class InviteService {
     {
       id: 2,
       nome: 'Grupo da Tarde',
-      destino: 'UEM',
+      destino: 'UEM - Maringá',
       nota: 4,
       horaInicio: '08:30',
       onAccept: () => console.log('Convite aceito'),
@@ -21,7 +21,7 @@ export default new (class InviteService {
     {
       id: 3,
       nome: 'Grupo da Noite',
-      destino: 'UNIFEI',
+      destino: 'UEL - Londrina',
       nota: 4.2,
       horaInicio: '09:30',
       onAccept: () => console.log('Convite aceito'),
@@ -30,7 +30,7 @@ export default new (class InviteService {
     {
       id: 4,
       nome: 'Grupo do Verstappen',
-      destino: 'F1 Winner',
+      destino: 'UNINGÁ - Maringá',
       nota: 5,
       horaInicio: '00:30',
       onAccept: () => console.log('Convite aceito'),
@@ -39,7 +39,7 @@ export default new (class InviteService {
     {
       id: 5,
       nome: 'Grupo do Dando Mollis',
-      destino: 'F1 Looser',
+      destino: 'UFPR - Curitiba',
       nota: 1,
       horaInicio: '12:49',
       onAccept: () => console.log('Convite aceito'),
