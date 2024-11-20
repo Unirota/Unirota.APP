@@ -16,19 +16,7 @@ export default class InviteCard extends Component {
 }
   
   formatTime(time) {
-    if (!time) return '';
-    
-    if (typeof time === 'string' && time.match(/^\d{2}:\d{2}$/)) {
-      return time;
-    }
-    
-    try {
-      const [hours, minutes] = time.split(':');
-      return `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`;
-    } catch (error) {
-      console.error('Erro ao formatar hora:', error);
-      return 'Horário indisponível';
-    }
+    return `${new Date(time).getHours()}:${new Date(time).getMinutes()}`;
   }
 
   toggleModal = () => {
@@ -53,13 +41,14 @@ export default class InviteCard extends Component {
           <Text style={InviteCardStyles.timeText}>{formattedTime}</Text>
           <View style={InviteCardStyles.buttonsContainer}>
             <TouchableOpacity onPress={this.toggleModal}>
-              <InviteInfoButton />
+              <InviteInfoButton onPress={this.toggleModal}/>
             </TouchableOpacity>
           </View>
         </View>
 
         <InfoGroupModal
           group={group}
+          navigation={this.props.navigation}
           isVisible={isModalVisible}
           onClose={this.toggleModal}
         />

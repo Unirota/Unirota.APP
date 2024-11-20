@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, Text, Modal, Image } from 'react-native'
+import { View, TouchableOpacity, Text, Modal, Image, Alert } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import InfoGroupModalStyles from '../../styles/Molecules/InfoGroupModalStyles'
 import GreyLineInfoGroupModal from '../Atoms/GreyLineInfoGroupModal'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import InviteService from '../../services/InviteService'
 
 // falta implementar lógica da data de criação do grupo, qual motorista criou e n° participantes
 
@@ -11,14 +13,24 @@ export default class InviteModal extends Component {
     super(props)
   }
 
-  handleAccept = () => {
-    // Lógica para aceitar o convite
-    console.log('Convite aceito')
+  handleAccept = (inviteId) => {
+    InviteService.AcceptInvite(inviteId)
+    .then(() => {
+      this.props.navigation.replace('GroupListPage');
+    })
+    .catch(() => {
+      Alert.alert('Erro ao aceitar convite.')
+    })
   }
 
-  handleReject = () => {
-    // Lógica para recusar o convite
-    console.log('Convite recusado')
+  handleReject = (inviteId) => {
+    InviteService.RefuseInvite(inviteId)
+    .then(() => {
+      this.props.navigation.replace('GroupListPage');
+    })
+    .catch(() => {
+      Alert.alert('Erro ao recusar convite.')
+    });
   }
 
   render() {
@@ -46,7 +58,7 @@ export default class InviteModal extends Component {
             
             <Text style={InfoGroupModalStyles.modalText}>
               <Text style={InfoGroupModalStyles.boldText}>Motorista:</Text> {group.motorista} {"\n"}
-              {group.participantes} participantes
+              {group.participantes} {group.participantes === 1 ? 'participante' : 'participantes'}
             </Text>
 
             {/* Destino e nota */}
@@ -57,14 +69,14 @@ export default class InviteModal extends Component {
               </View>
               <View style={InfoGroupModalStyles.infoRow}>
                 <Icon name="access-time" size={20} color="#FFF" style={InfoGroupModalStyles.icon} />
-                <Text style={InfoGroupModalStyles.infoText}>{group.horaInicio}</Text>
+                <Text style={InfoGroupModalStyles.infoText}>{new Date(group.horaInicio).getHours()}{':'}{new Date(group.horaInicio).getMinutes()}</Text>
                 <View style={{ marginHorizontal: 20 }} />
                 <Icon name="star" size={20} color="#FFD700" style={InfoGroupModalStyles.icon} />
                 <Text style={InfoGroupModalStyles.infoText}>{group.nota}</Text>
               </View>
             </View>
             <Text style={InfoGroupModalStyles.footerText}>
-              Grupo criado em {group.dataCriacao}
+              Grupo criado em {new Date(group.dataCriacao).toLocaleDateString()}
             </Text>
 
             {/* Container para os botões */}
@@ -72,7 +84,7 @@ export default class InviteModal extends Component {
               <View style={InfoGroupModalStyles.buttonWrapper}>
                 <TouchableOpacity 
                   style={InfoGroupModalStyles.acceptButton}
-                  onPress={this.handleAccept}
+                  onPress={() => this.handleAccept(group.id)}
                 >
                   <Text style={InfoGroupModalStyles.acceptButtonText}>Aceitar</Text>
                 </TouchableOpacity>
@@ -80,7 +92,7 @@ export default class InviteModal extends Component {
               <View style={InfoGroupModalStyles.buttonWrapper}>
                 <TouchableOpacity 
                   style={InfoGroupModalStyles.rejectButton}
-                  onPress={this.handleReject}
+                  onPress={() => this.handleReject(group.id)}
                 >
                   <Text style={InfoGroupModalStyles.rejectButtonText}>Recusar</Text>
                 </TouchableOpacity>

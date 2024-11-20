@@ -13,7 +13,7 @@ export default class InvitePage extends Component {
       <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
         <View style={styles.container}>
           <InviteUnirotaTitle/>
-          <PageInvite/>
+          <PageInvite navigation={this.props.navigation}/>
         </View>
         <NavigationFooter navigation={this.props.navigation} />
       </LinearGradient>

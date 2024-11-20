@@ -64,7 +64,7 @@ export default class GroupListPage extends Component {
             return (
                 <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
                     <UnirotaTitle />
-                    <GroupListButtonRow/>
+                    <GroupListButtonRow navigation={this.props.navigation}/>
                     <Text style={styles.usuarioSemGruposText}>Usuário não está em nenhum grupo.</Text>
                     <View style={{ flex: 1 }}>
                     </View>
@@ -76,7 +76,7 @@ export default class GroupListPage extends Component {
         return (
             <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
                 <UnirotaTitle />
-                <GroupListButtonRow/>
+                <GroupListButtonRow navigation={this.props.navigation}/>
                 <FlatList
                     data={groups}
                     renderItem={this.renderItem}
