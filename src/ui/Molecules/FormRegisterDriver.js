@@ -3,7 +3,7 @@ import { FlatList } from 'react-native'
 import { View } from 'react-native'
 import { Alert } from 'react-native';
 import styles from '../../styles/Organisms/Home/styles'
-import HeaderRegisterCreateGroup from './HeaderRegisterCreateGroup';
+import HeaderRegisterDriver from './HeaderRegisterDriver';
 import NumberLicenseInput from '../Atoms/NumberLicenseInput';
 import CarNumberInput from '../Atoms/CarNumberInput';
 import CarColorInput from '../Atoms/CarColorInput';
@@ -12,7 +12,7 @@ import DescriptionDriverInput from '../Atoms/DescriptionDriverInput';
 import ButtonRegisterDriver from '../Atoms/ButtonRegisterDriver';
 import RegisterDriverService from '../../services/RegisterDriverService';
 
-export default class FormRegisterGroup extends Component {
+export default class FormRegisterDriver extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -77,7 +77,7 @@ export default class FormRegisterGroup extends Component {
     renderItem = ({ item }) => item.component;
     render() {
         const Components = [
-            { id: '1', component: <HeaderRegisterCreateGroup /> },
+            { id: '1', component: <HeaderRegisterDriver /> },
             { id: '2', component: <NumberLicenseInput onChangeText={this.handleHabilitacaoChange} /> },
             { id: '3', component: <CarNumberInput onChangeText={this.handlePlacaChange} /> },
             { id: '4', component: <CarColorInput onChangeText={this.handleCorChange} /> },

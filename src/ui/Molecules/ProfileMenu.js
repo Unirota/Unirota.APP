@@ -12,7 +12,7 @@ export default class ProfileMenu extends Component {
     this.handleLogout = this.handleLogout.bind(this);
     this.onRidesClick = this.onRidesClick.bind(this);
     this.onMyInfoClick = this.onMyInfoClick.bind(this);
-    this.onCreateGroupClick = this.onDriverClick.bind(this);
+    this.onDriverClick = this.onDriverClick.bind(this);
     this.onFAQClick = this.onFAQClick.bind(this);
   }
 
