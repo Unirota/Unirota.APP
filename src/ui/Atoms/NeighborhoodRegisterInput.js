@@ -9,7 +9,7 @@ export default class NeighborhoodRegisterInput extends Component {
     }
     render() {
         return (
-            <View style={styles.row}>
+            <View style={RegisterInputStyles.row}>
                 <TextInput
                     style={RegisterInputStyles.inputNeighborhood}
                     placeholderTextColor='black'

@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import DriverProfileHeader from '../../Molecules/DriverProfileHeader'
 import DriverProfileMenu from '../../Molecules/DriverProfileMenu'
@@ -9,6 +9,7 @@ import UnirotaTitle from '../../Atoms/UnirotaTitle'
 import UserService from '../../../services/UserService'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Loading from '../../Atoms/Loading'
+import UnirotaTitleStyles from '../../../styles/Atoms/UnirotaTitleStyles'
 
 export default class DriverProfilePage extends Component {
   constructor(props) {
@@ -44,7 +45,18 @@ export default class DriverProfilePage extends Component {
     return (
       <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
         <View style={styles.container}>
-          <UnirotaTitle />
+        <View style={UnirotaTitleStyles.titleContainerProfile}>
+                <Text style={[
+                    UnirotaTitleStyles.commonText,
+                    UnirotaTitleStyles.blueText]}>
+                    Uni
+                </Text>
+                <Text style={[
+                    UnirotaTitleStyles.commonText,
+                    UnirotaTitleStyles.whiteText]}>
+                    Rota
+                </Text>
+            </View>
           <DriverProfileHeader headerData={ headerData }/>
           <DriverProfileMenu />
         </View>

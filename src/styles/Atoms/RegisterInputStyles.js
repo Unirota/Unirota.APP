@@ -6,6 +6,15 @@ export default StyleSheet.create({
         justifyContent: 'center',
         marginTop: 16
     },
+    row: {
+        alignSelf: 'center',
+        marginLeft: 110,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start', // Adicionado para espaçar os elementos
+        paddingRight: 60,
+        alignItems: 'center', // Opcional, alinha os elementos verticalmente
+    },
     input: {
         alignSelf: 'center',
         fontWeight: 'bold',
@@ -30,13 +39,12 @@ export default StyleSheet.create({
         padding: 16
     },
     inputNeighborhood: {
-        flexDirection: 'row',
-        marginLeft: 56,
+        marginRight: 10,
         fontWeight: 'bold',
         fontSize: 17,
         color: 'black',
         backgroundColor: 'white',
-        width: 200,
+        width: 190,
         height: 50,
         borderRadius: 16,
         padding: 16,

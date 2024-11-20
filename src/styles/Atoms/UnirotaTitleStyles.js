@@ -7,6 +7,12 @@ export default StyleSheet.create({
     marginTop: 16,
     marginBottom: 32
   },
+  titleContainerProfile: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 16,
+  },
   commonText: {
     fontSize: 25,
     fontWeight: '800',
