@@ -57,7 +57,7 @@ export default class ProfilePage extends Component {
                 </Text>
             </View>
           <ProfileHeader headerData={ headerData }/>
-          <ProfileMenu />
+          <ProfileMenu navigation={this.props.navigation}/>
         </View>
         <NavigationFooter navigation={this.props.navigation}/>
       </LinearGradient>

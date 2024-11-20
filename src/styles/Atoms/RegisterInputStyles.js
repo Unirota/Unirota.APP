@@ -18,7 +18,7 @@ export default StyleSheet.create({
     input: {
         alignSelf: 'center',
         fontWeight: 'bold',
-        fontSize: 17,
+        fontSize: 14,
         color: 'black',
         backgroundColor: 'white',
         width: 300,

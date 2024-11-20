@@ -15,11 +15,11 @@ import InvitePage from './src/ui/Organisms/Invite'
 import EditProfilePage from './src/ui/Organisms/EditProfile'
 import GroupRequestPage from './src/ui/Organisms/GroupRequest'
 import GroupListPage from './src/ui/Organisms/GroupList'
-
-import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'  
+import RequestPage from './src/ui/Organisms/Request'
+import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
+import RegisterGroupPage from './src/ui/Organisms/RegisterGroup'
 
 const Stack = createNativeStackNavigator()
-
 
 export default class App extends Component {
   constructor(props) {
@@ -44,7 +44,6 @@ export default class App extends Component {
     }
 
     let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
-
     return (
       <FontProvider>
         <NavigationContainer>
@@ -99,11 +98,11 @@ export default class App extends Component {
               component={RegisterPage}
               options={{ headerShown: false }}
             />
-          <Stack.Screen
-            name="GroupListPage"
-            component={GroupListPage}
-            options={{ headerShown: false }}
-          />
+            <Stack.Screen
+              name="GroupListPage"
+              component={GroupListPage}
+              options={{ headerShown: false }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </FontProvider>

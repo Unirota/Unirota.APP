@@ -58,7 +58,7 @@ export default class DriverProfilePage extends Component {
                 </Text>
             </View>
           <DriverProfileHeader headerData={ headerData }/>
-          <DriverProfileMenu />
+          <DriverProfileMenu navigation={this.props.navigation}/>
         </View>
         <NavigationFooter navigation={this.props.navigation}/>
       </LinearGradient>
