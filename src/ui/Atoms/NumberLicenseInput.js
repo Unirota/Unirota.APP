@@ -21,6 +21,7 @@ export default class NumberLicenseInput extends Component {
                     placeholderTextColor='black'
                     placeholder="Número da habilitação"
                     keyboardType="text"
+                    onChangeText={this.props.onChangeText}
                 />
             </View>
         )

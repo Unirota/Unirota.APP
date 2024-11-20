@@ -18,7 +18,7 @@ export default class FormRegisterGroup extends Component {
     render() {
         const Components = [
             { id: '1', component: <HeaderRegisterCreateGroup /> },
-            { id: '2', component: <PhotoUserRegister /> },
+            // { id: '2', component: <PhotoUserRegister /> },
             { id: '3', component: <NameGroupDriverInput /> },
             { id: '4', component: <QuantityPeopleGroup /> },
             { id: '5', component: <HourGroupInput /> },

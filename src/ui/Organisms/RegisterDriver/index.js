@@ -2,12 +2,11 @@ import { Component } from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from '../../../styles/Organisms/Home/styles'
 import FormRegisterDriver from '../../Molecules/FormRegisterDriver';
-import FormRegisterGroup from '../../Molecules/FormRegisterGroup';
+import NavigationFooter from '../../Molecules/NavigationFooter';
 
 export default class RegisterDriverPage extends Component {
     constructor(props) {
         super(props)
-        this.goToHome = this.goToHome.bind(this)
     }
 
     goToHome() {
@@ -21,9 +20,9 @@ export default class RegisterDriverPage extends Component {
                 locations={[0.0, 0.6]}
                 style={styles.gradient}
             >
-            <FormRegisterGroup/>
+                <FormRegisterDriver navigation={this.props.navigation}/>
                 {/* <FormLogin goToHome={this.goToHome} /> */}
-                
+            <NavigationFooter navigation={this.props.navigation}/>
             </LinearGradient>
         )
     }
