@@ -5,7 +5,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginVertical: 24,
     flexDirection: 'row',
-    marginTop: 48,
   },
   profileContentContainer: {
     marginLeft: 21,
