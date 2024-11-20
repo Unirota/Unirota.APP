@@ -5,11 +5,17 @@ import GroupListButtonInvitesStyles from "../../styles/Atoms/GroupListButtonInvi
 export default class GroupListButtonInvites extends Component {
     constructor(props) {
         super(props)
+        this.handleInvitesPageClick = this.handleInvitesPageClick.bind(this)
     }
+
+    handleInvitesPageClick() {
+        this.props.navigation.navigate('InvitePage')
+    }
+
     render() {
         return (
             <View style={GroupListButtonInvitesStyles.container}>
-                <TouchableOpacity onPress={this.props.onPress} style={{ flexDirection: `row`, width: '100%' }}>
+                <TouchableOpacity onPress={this.handleInvitesPageClick} style={{ flexDirection: `row`, width: '100%' }}>
                     <Image
                         style={{ marginLeft: 16, marginRight: 8, alignSelf: 'center' }}
                         source={require('./../../../assets/images/MessageIcon.png')}

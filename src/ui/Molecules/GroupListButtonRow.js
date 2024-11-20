@@ -7,8 +7,8 @@ export default class GroupListButtonRow extends Component {
     render() {
         return (
             <View style={{flexDirection: `row`,marginBottom: 32}}>
-                <GroupListButtonInvites />
-                <GroupListButtonRequests />
+                <GroupListButtonInvites navigation={this.props.navigation}/>
+                <GroupListButtonRequests navigation={this.props.navigation}/>
             </View>
         )
     }
