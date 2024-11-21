@@ -40,7 +40,7 @@ export default class DriverProfileMenu extends Component {
   onFAQClick() {
     this.props.navigation.navigate('FaqPage');
   }
-  
+
   render() {
     return (
       <View style={styles.container}>
@@ -64,13 +64,32 @@ export default class DriverProfileMenu extends Component {
               style={styles.buttonIcon}
             />
             <Text style={[styles.buttonText, styles.buttonFirstItemText]}>
-            Criar grupo de carona
+              Criar grupo de carona
 
             </Text>
             <Ionicons
               name="chevron-forward"
               size={24}
               color={'#fff'}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.buttonContainer]}
+            onPress={this.onRidesClick}
+          >
+            <Ionicons
+              name={'mail'}
+              size={24}
+              color={'#1E1E1E'}
+              style={styles.buttonIcon}
+            />
+            <Text style={[styles.buttonText]}>
+              Convidar Membro
+            </Text>
+            <Ionicons
+              name="chevron-forward"
+              size={24}
+              color={'#1E1E1E'}
             />
           </TouchableOpacity>
           {/* CORRIDAS */}
@@ -105,7 +124,7 @@ export default class DriverProfileMenu extends Component {
               style={styles.buttonIcon}
             />
             <Text style={[styles.buttonText]}>
-              Minhas informações
+              Editar Perfil
             </Text>
             <Ionicons
               name="chevron-forward"
