@@ -68,6 +68,11 @@ export default class App extends Component {
               options={{ headerShown: false }}
             />
             <Stack.Screen
+              name="RegisterPage"
+              component={RegisterPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
               name="DriverProfilePage"
               component={DriverProfilePage}
               options={{ headerShown: false }}
