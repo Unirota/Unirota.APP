@@ -1,6 +1,7 @@
 import LoginInputStyles from "../../styles/Atoms/LoginInputStyles"
 import { Component } from "react"
 import { View, TextInput } from "react-native"
+import RegisterInputStyles from "../../styles/Atoms/RegisterInputStyles"
 
 export default class EmailInputRegister extends Component {
     constructor(props) {
@@ -8,9 +9,9 @@ export default class EmailInputRegister extends Component {
     }
     render() {
         return (
-            <View style={LoginInputStyles.container}>
+            <View>
                 <TextInput
-                    style={LoginInputStyles.input}
+                    style={RegisterInputStyles.input}
                     placeholderTextColor='black'
                     placeholder="E-mail"
                     keyboardType="text"

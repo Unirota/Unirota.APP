@@ -1,6 +1,7 @@
 import LoginInputStyles from "../../styles/Atoms/LoginInputStyles"
 import { Component } from "react"
 import { View, TextInput } from "react-native"
+import RegisterInputStyles from "../../styles/Atoms/RegisterInputStyles";
 
 export default class SenhaInputRegister extends Component {
     constructor(props) {
@@ -8,16 +9,14 @@ export default class SenhaInputRegister extends Component {
     }
     render() {
         return (
-            <View style={LoginInputStyles.container}>
-                <TextInput
-                    secureTextEntry={true}
-                    style={LoginInputStyles.input}
-                    placeholderTextColor='black'
-                    placeholder="Senha"
-                    keyboardType="text"
-                    onChangeText={this.props.onChangeText}
-                />
-            </View>
+            <TextInput
+                secureTextEntry={true}
+                style={RegisterInputStyles.input}
+                placeholderTextColor='black'
+                placeholder="Senha"
+                keyboardType="text"
+                onChangeText={this.props.onChangeText}
+            />
 
         )
     }
