@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 import { FaqAvatarStyles } from '../../styles/Atoms/FaqAvatarStyles';
 
+
 export default class FaqAvatar extends Component {
     render() {
         return (

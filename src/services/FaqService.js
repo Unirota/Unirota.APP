@@ -1,7 +1,6 @@
 export const FaqData = [
   {
     id: 1,
-    question: 'O que é o Unirota?',
     answer:
       'O UniRota é um aplicativo de carona universitária, desenvolvido especialmente para estudantes que desejam compartilhar o trajeto até a universidade de forma segura e prática. O foco do UniRota é conectar estudantes que possuem carro com outros estudantes que precisam de uma carona, promovendo a economia compartilhada, reduzindo o custo com transporte e contribuindo para uma mobilidade mais sustentável no ambiente universitário.',
   },
