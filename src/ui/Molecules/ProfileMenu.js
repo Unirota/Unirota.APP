@@ -103,7 +103,7 @@ export default class ProfileMenu extends Component {
               style={styles.buttonIcon}
             />
             <Text style={[styles.buttonText]}>
-              Minhas informações
+              Editar Perfil
             </Text>
             <Ionicons
               name="chevron-forward"
