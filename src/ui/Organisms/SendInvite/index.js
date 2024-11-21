@@ -14,7 +14,7 @@ export default class SendInvitePage extends Component {
             >
 
             <SendEnviteUserLogo/>
-            <SendInviteUser/>
+            <SendInviteUser navigation={this.props.navigation}/>
             </LinearGradient>
         )
     }
