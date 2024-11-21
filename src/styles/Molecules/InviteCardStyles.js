@@ -10,11 +10,6 @@ export default StyleSheet.create({
     marginHorizontal: 16,
     alignItems: 'center',
     justifyContent: 'space-between',
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
   },
   leftContent: {
     flexDirection: 'row',
@@ -50,5 +45,5 @@ export default StyleSheet.create({
     color: '#666',
     fontWeight: '500',
     marginBottom: 4
-  },
+  }
 });

@@ -7,12 +7,12 @@ import RegisterInputStyles from '../../styles/Atoms/RegisterInputStyles';
 export default class NameGroupDriverInput extends Component {
     render() {
         return (
-            <View>  
+            <View>
                 <Text style={[
                     HeaderLoginStyle.commonSubtitleLogin,
                     UnirotaTitleStyles.whiteText,
                     HeaderLoginStyle.subtitleRegister,
-                    ]}>
+                ]}>
                     Informações
                 </Text>
                 <TextInput
@@ -20,6 +20,7 @@ export default class NameGroupDriverInput extends Component {
                     placeholderTextColor='black'
                     placeholder="Nome do Grupo"
                     keyboardType="text"
+                    onChangeText={this.props.onChangeText}
                 />
             </View>
         )

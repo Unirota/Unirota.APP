@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { FlatList, View } from "react-native";
+import { FlatList, View, Text } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient'
 import UnirotaTitle from "../../Atoms/UnirotaTitle";
 import styles from "../../../styles/Organisms/GroupList/styles";
@@ -60,10 +60,23 @@ export default class GroupListPage extends Component {
             )
         }
 
+        if(groups.length === 0) {
+            return (
+                <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
+                    <UnirotaTitle />
+                    <GroupListButtonRow navigation={this.props.navigation}/>
+                    <Text style={styles.usuarioSemGruposText}>Usuário não está em nenhum grupo.</Text>
+                    <View style={{ flex: 1 }}>
+                    </View>
+                    <NavigationFooter navigation={this.props.navigation} />
+                </LinearGradient>
+            )
+        }
+
         return (
             <LinearGradient colors={['#00112B', '#003A90']} style={styles.gradient}>
                 <UnirotaTitle />
-                <GroupListButtonRow/>
+                <GroupListButtonRow navigation={this.props.navigation}/>
                 <FlatList
                     data={groups}
                     renderItem={this.renderItem}

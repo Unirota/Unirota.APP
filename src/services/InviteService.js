@@ -1,78 +1,63 @@
-export default new (class InviteService {
-  groups = [
-    {
-      id: 1,
-      nome: 'Grupo da Manhã',
-      destino: 'UniCesumar',
-      nota: 4.5,
-      horaInicio: '07:30',
-      onAccept: () => console.log('Convite aceito'),
-      onReject: () => console.log('Convite rejeitado')
-    },
-    {
-      id: 2,
-      nome: 'Grupo da Tarde',
-      destino: 'UEM',
-      nota: 4,
-      horaInicio: '08:30',
-      onAccept: () => console.log('Convite aceito'),
-      onReject: () => console.log('Convite rejeitado')
-    },
-    {
-      id: 3,
-      nome: 'Grupo da Noite',
-      destino: 'UNIFEI',
-      nota: 4.2,
-      horaInicio: '09:30',
-      onAccept: () => console.log('Convite aceito'),
-      onReject: () => console.log('Convite rejeitado')
-    },
-    {
-      id: 4,
-      nome: 'Grupo do Verstappen',
-      destino: 'F1 Winner',
-      nota: 5,
-      horaInicio: '00:30',
-      onAccept: () => console.log('Convite aceito'),
-      onReject: () => console.log('Convite rejeitado')
-    },
-    {
-      id: 5,
-      nome: 'Grupo do Dando Mollis',
-      destino: 'F1 Looser',
-      nota: 1,
-      horaInicio: '12:49',
-      onAccept: () => console.log('Convite aceito'),
-      onReject: () => console.log('Convite rejeitado')
-    },
-    
-  ];
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import ApiUnirota from "../api/ApiUnirota";
 
-  getGroups(filters = {}) {
-    if (!filters || Object.keys(filters).length === 0) {
-      return this.groups;
-    }
+const inviteBaseRoute = 'convite'
 
-    return this.groups.filter(group => {
-      const { startTime, destination } = filters;
-      
-      if (startTime) {
-        const filterTimeMinutes = this.convertToMinutes(startTime);
-        const groupTimeMinutes = this.convertToMinutes(group.time);
-        
-        if (groupTimeMinutes < filterTimeMinutes) {
-          return false;
-        }
+export default new class InviteService {
+  async GetInvites() {
+    const token = await AsyncStorage.getItem('token');
+    let response = await ApiUnirota.get(`/${inviteBaseRoute}`, {
+      headers: {
+        'Authorization': token
       }
+    })
+    .then(response => {
+      
+      return response;
 
-      if (destination && group.institution !== destination) return false;
-
-      return true;
-    });
+    }).catch(error => {
+      
+      console.log(error)
+    })
+    
+    return response;
   }
 
-  convertToMinutes(timeStr) {
-    const [hours, minutes] = timeStr.split(':').map(Number);
-    return hours * 60 + minutes;
+  async AcceptInvite(inviteId) {
+    const token = await AsyncStorage.getItem('token');
+    let response = await ApiUnirota.patch(`/${inviteBaseRoute}/${inviteId}`, {}, {
+      headers: {
+        'Authorization': token
+      }
+    })
+    .then(response => {
+      
+      return response;
+
+    }).catch(error => {
+      
+      console.log(error)
+    })
+    
+    return response;
   }
-})();
+
+  async RefuseInvite(inviteId) {
+    const token = await AsyncStorage.getItem('token');
+    let response = await ApiUnirota.delete(`/${inviteBaseRoute}/recusar/${inviteId}`, {
+      headers: {
+        'Authorization': token
+      }
+    })
+    .then(response => {
+      
+      return response;
+
+    }).catch(error => {
+      
+      console.log(error)
+    })
+    
+    return response;
+  }
+}

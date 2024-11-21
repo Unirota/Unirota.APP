@@ -27,7 +27,7 @@ export default class GroupListCard extends Component {
                         <Text
                             style={GroupListCardStyles.font}
                             numberOfLines={2}
-                        >{ultimaMensagem}</Text>
+                        >{ultimaMensagem == "" ? 'Ainda não há mensagens neste grupo.' : ultimaMensagem}</Text>
                     </View>
                     <View style={GroupListCardStyles.blackLine}></View>
                     <View style={GroupListCardStyles.header}>

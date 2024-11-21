@@ -7,11 +7,9 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   blueLine: {
-    width: '90%',
-    height: 2,
-    backgroundColor: '#007DF0',
-    marginHorizontal: 13,
-    marginTop: -40,
-    marginBottom: 28,
+    width: '95%',
+    height: 1.2,
+    marginTop: 4,
+    marginVertical: 10
   },
 })

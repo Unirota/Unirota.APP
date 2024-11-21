@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { Component } from "react";
+import { TouchableOpacity, View, Text } from "react-native";
 import DateTimePicker from '@react-native-community/datetimepicker';
-import LoginInputStyles from '../../styles/Atoms/LoginInputStyles';
-import RegisterInputStyles from '../../styles/Atoms/RegisterInputStyles';
+import RegisterInputStyles from "../../styles/Atoms/RegisterInputStyles";
 
-export default class HourGroupInput extends Component {
-    constructor(props) {
-        super(props);
+export default class GroupEditTimeInput extends Component {
+    constructor(props){
+        super(props)
         this.state = {
             showTimePicker: false,
             selectedTime: null, // Inicialmente, nenhum horário está selecionado
@@ -27,7 +26,7 @@ export default class HourGroupInput extends Component {
 
     render() {
         return (
-            <View style={[LoginInputStyles.container, {alignSelf: 'center'}]}>
+            <View style={{ marginBottom: 16}}>
                 <TouchableOpacity
                     onPress={() => this.setState({ showTimePicker: true })}
                 >
@@ -45,7 +44,6 @@ export default class HourGroupInput extends Component {
                     />
                 )}
             </View>
-        );
+        )
     }
 }
-

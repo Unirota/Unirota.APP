@@ -4,26 +4,28 @@ import GroupAvatar from '../Atoms/SearchGroupAvatar'
 import GroupInfo from '../Atoms/SearchGroupInfo'
 import InviteCardStyles from '../../styles/Molecules/InviteCardStyles'
 import InviteInfoButton from '../Atoms/InviteInfoButton'
+import InfoGroupModal from './InfoGroupModal'
+
 
 export default class InviteCard extends Component {
-  formatTime(time) {
-    if (!time) return '';
-    
-    if (typeof time === 'string' && time.match(/^\d{2}:\d{2}$/)) {
-      return time;
-    }
-    
-    try {
-      const [hours, minutes] = time.split(':');
-      return `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`;
-    } catch (error) {
-      console.error('Erro ao formatar hora:', error);
-      return 'Horário indisponível';
-    }
+  constructor(props){
+    super(props);
+    this.state = {
+      isModalVisible: false,
   }
+}
+  
+  formatTime(time) {
+    return `${new Date(time).getHours()}:${new Date(time).getMinutes()}`;
+  }
+
+  toggleModal = () => {
+    this.setState((prevState) => ({ isModalVisible: !prevState.isModalVisible }));
+  };
 
   render() {
     const { group } = this.props
+    const { isModalVisible } = this.state
     const formattedTime = this.formatTime(group.horaInicio)
 
     return (
@@ -38,11 +40,19 @@ export default class InviteCard extends Component {
         <View style={InviteCardStyles.rightContent}>
           <Text style={InviteCardStyles.timeText}>{formattedTime}</Text>
           <View style={InviteCardStyles.buttonsContainer}>
-            <TouchableOpacity>
-              <InviteInfoButton/>
+            <TouchableOpacity onPress={this.toggleModal}>
+              <InviteInfoButton onPress={this.toggleModal}/>
             </TouchableOpacity>
           </View>
         </View>
+
+        <InfoGroupModal
+          group={group}
+          navigation={this.props.navigation}
+          isVisible={isModalVisible}
+          onClose={this.toggleModal}
+        />
+        
       </View>
     )
   }
