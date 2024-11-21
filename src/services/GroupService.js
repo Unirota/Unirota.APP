@@ -66,4 +66,24 @@ export default new class GroupService {
     
     return response;
   }
+
+  async GetUserGroupsAsDriver() {
+    const token = await AsyncStorage.getItem('token');
+
+    let response = await ApiUnirota.get(`/${groupBaseRoute}/meusgrupos`, {
+      headers: {
+        'Authorization': token
+      }
+    })
+    .then(response => {
+      
+      return response;
+
+    }).catch(error => {
+      
+      console.log(error)
+    })
+    
+    return response;
+  }
 }

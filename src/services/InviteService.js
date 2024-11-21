@@ -60,4 +60,26 @@ export default new class InviteService {
     
     return response;
   }
+
+  async SendInvite(grupoId, email) {
+    const token = await AsyncStorage.getItem('token');
+    let response = await ApiUnirota.post(`/${inviteBaseRoute}`, {
+      email,
+      grupoId
+    },{
+      headers: {
+        'Authorization': token
+      }
+    })
+    .then(response => {
+      
+      return response;
+
+    }).catch(error => {
+      
+      console.log(error)
+    })
+    
+    return response;
+  }
 }

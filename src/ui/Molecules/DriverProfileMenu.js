@@ -14,6 +14,7 @@ export default class DriverProfileMenu extends Component {
     this.onEditProfileClick = this.onEditProfileClick.bind(this);
     this.onFAQClick = this.onFAQClick.bind(this);
     this.onRidesClick = this.onRidesClick.bind(this);
+    this.onInvitesClick = this.onInvitesClick.bind(this);
   }
 
   handleLogout() {
@@ -39,6 +40,10 @@ export default class DriverProfileMenu extends Component {
 
   onFAQClick() {
     this.props.navigation.navigate('FaqPage');
+  }
+
+  onInvitesClick() {
+    this.props.navigation.navigate('SendInvitePage');
   }
 
   render() {
@@ -76,7 +81,7 @@ export default class DriverProfileMenu extends Component {
           {/* convidar membro */}
           <TouchableOpacity
             style={[styles.buttonContainer]}
-            onPress={this.onRidesClick}
+            onPress={this.onInvitesClick}
           >
             <Ionicons
               name={'mail'}
