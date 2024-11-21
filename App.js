@@ -17,6 +17,7 @@ import GroupListPage from './src/ui/Organisms/GroupList'
 import RequestPage from './src/ui/Organisms/Request'
 import RegisterDriverPage from './src/ui/Organisms/RegisterDriver'
 import RegisterGroupPage from './src/ui/Organisms/RegisterGroup'
+import GroupDataPage from './src/ui/Organisms/GroupData'
 import ChatPage from './src/ui/Organisms/Chat'
 import GroupEditPage from './src/ui/Organisms/GroupEdit'
 import SendInvitePage from './src/ui/Organisms/SendInvite'
@@ -45,7 +46,7 @@ export default class App extends Component {
       )
     }
 
-    let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
+    let initialRoute = isAuthorized ? 'GroupDataPage' : "LoginPage"
     return (
       <FontProvider>
         <NavigationContainer>
@@ -113,6 +114,11 @@ export default class App extends Component {
             <Stack.Screen
               name="RequestPage"
               component={RequestPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="GroupDataPage"
+              component={GroupDataPage}
               options={{ headerShown: false }}
             />
             <Stack.Screen

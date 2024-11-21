@@ -4,7 +4,7 @@ export const FaqStyles = StyleSheet.create({
   mainContainer: {
     height: '100%',
   },
-  faqContainer: {
+  groupContainer: {
     paddingHorizontal: 16,
     paddingBottom: 16,
   },
