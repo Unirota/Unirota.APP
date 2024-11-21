@@ -1,8 +1,10 @@
 import { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
 import { Picker } from '@react-native-picker/picker'
 import {SendInviteUsersStyles} from '../../styles/Molecules/SendInviteUsersStyles'
-
+import Loading from '../Atoms/Loading';
+import GroupService from '../../services/GroupService';
+import InviteService from '../../services/InviteService';
 
 export default class SendInviteUser extends Component {
   constructor(props) {
@@ -10,22 +12,70 @@ export default class SendInviteUser extends Component {
     this.state = {
       selectedGroup: null,
       email: '',
-      groups: [
-        { id: 1, nome: 'grupo muito legal' },
-        { id: 2, nome: 'grupo da uem' },
-      ],
+      groups: null,
     };
+
+    this.EnviarConvite = this.EnviarConvite.bind(this);
+  }
+  
+  async ObterDados() {
+    const dados = await GroupService.GetUserGroupsAsDriver();
+    return dados.data;
   }
 
-  handleSendInvite = () => {
-    const { selectedGroup, email } = this.state;
-    console.log('Grupo ID:', selectedGroup);
-    console.log('Email:', email);
-    // Lógica de envio aqui
-  };
+  async EnviarConvite(selectedGroup, email){
+    const dados = await InviteService.SendInvite(selectedGroup, email)
+    if(dados.data !== null && dados.data !== 0) {
+      this.props.navigation?.replace('GroupListPage')
+    } else {
+      Alert.alert('Erro ao enviar convite', '', [
+        {
+          text: 'OK',
+          onPress: () => {},
+          style: 'cancel'
+        }
+      ])
+    }
+  }
+
+  async componentDidMount() {
+    const dadosGrupos = await this.ObterDados();
+
+    if(dadosGrupos !== null) {
+      this.setState({groups: dadosGrupos});
+    }
+
+    if(dadosGrupos.length === 1) {
+      this.setState({selectedGroup: dadosGrupos[0].id})
+    }
+  }
 
   render() {
     const { selectedGroup, email, groups } = this.state;
+
+    if(groups === null) {
+      return(
+        <View style={SendInviteUsersStyles.container}>
+          <Text style={SendInviteUsersStyles.title}>
+            Convidar para <Text style={SendInviteUsersStyles.titleHighlight}>Grupo</Text>
+          </Text>
+          <Loading/>
+        </View>
+      )
+    }
+
+    if(groups.length === 0) {
+      return(
+        <View style={SendInviteUsersStyles.container}>
+          <Text style={SendInviteUsersStyles.title}>
+            Convidar para <Text style={SendInviteUsersStyles.titleHighlight}>Grupo</Text>
+          </Text>
+          <Text>
+            Usuário não possui nenhum grupo criado.
+          </Text>
+        </View>
+      )
+    }
 
     return (
       <View style={SendInviteUsersStyles.container}>
@@ -59,7 +109,7 @@ export default class SendInviteUser extends Component {
         />
 
         {/* Botão de enviar convite */}
-        <TouchableOpacity style={SendInviteUsersStyles.button} onPress={this.handleSendInvite}>
+        <TouchableOpacity style={SendInviteUsersStyles.button} onPress={() => this.EnviarConvite(this.state.selectedGroup, this.state.email)}>
           <Text style={SendInviteUsersStyles.buttonText}>Convidar</Text>
         </TouchableOpacity>
       </View>

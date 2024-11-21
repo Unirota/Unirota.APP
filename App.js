@@ -21,6 +21,7 @@ import GroupDataPage from './src/ui/Organisms/GroupData'
 import ChatPage from './src/ui/Organisms/Chat'
 import GroupEditPage from './src/ui/Organisms/GroupEdit'
 import SendInvitePage from './src/ui/Organisms/SendInvite'
+import RegisterPage from './src/ui/Organisms/Register'
 
 const Stack = createNativeStackNavigator()
 
@@ -134,6 +135,11 @@ export default class App extends Component {
             <Stack.Screen
               name="SendInvitePage"
               component={SendInvitePage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="RegisterPage"
+              component={RegisterPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
