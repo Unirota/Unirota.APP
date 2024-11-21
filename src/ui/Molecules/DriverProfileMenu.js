@@ -10,10 +10,10 @@ export default class DriverProfileMenu extends Component {
   constructor(props) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
-    this.onRidesClick = this.onRidesClick.bind(this);
-    this.onMyInfoClick = this.onMyInfoClick.bind(this);
     this.onCreateGroupClick = this.onCreateGroupClick.bind(this);
+    this.onEditProfileClick = this.onEditProfileClick.bind(this);
     this.onFAQClick = this.onFAQClick.bind(this);
+    this.onRidesClick = this.onRidesClick.bind(this);
     this.onInvitesClick = this.onInvitesClick.bind(this);
   }
 
@@ -30,8 +30,8 @@ export default class DriverProfileMenu extends Component {
     console.log('foi pra tela de corridas')
   }
 
-  onMyInfoClick() {
-    console.log('foi pra tela minhas informações')
+  onEditProfileClick() {
+    this.props.navigation.navigate('EditProfilePage')
   }
 
   onCreateGroupClick() {
@@ -78,6 +78,7 @@ export default class DriverProfileMenu extends Component {
               color={'#fff'}
             />
           </TouchableOpacity>
+          {/* convidar membro */}
           <TouchableOpacity
             style={[styles.buttonContainer]}
             onPress={this.onInvitesClick}
@@ -117,10 +118,10 @@ export default class DriverProfileMenu extends Component {
               color={'#1E1E1E'}
             />
           </TouchableOpacity>
-          {/* minhas informações */}
+          {/* editar perfil */}
           <TouchableOpacity
             style={[styles.buttonContainer]}
-            onPress={this.onMyInfoClick}
+            onPress={this.onEditProfileClick}
           >
             <Ionicons
               name={'person'}
