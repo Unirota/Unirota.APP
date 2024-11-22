@@ -47,7 +47,6 @@ export default class ProfileMenu extends Component {
         <BlueLine />
         <ScrollView
           style={{
-            maxHeight: 280,
             width: '100%'
           }}
         >
