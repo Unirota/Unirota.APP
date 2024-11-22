@@ -32,9 +32,9 @@ export default class DriverProfileHeader extends Component {
     return (
       <View>
         <View style={styles.container}>
-          <DriverProfileAvatar
+          {/* <DriverProfileAvatar
             data={require('../../../assets/images/driver_avatar.png')}
-          />
+          /> */}
           <View style={styles.profileContentContainer}>
             <DriverProfileBadge />
             <DriverProfileName name={nome} />

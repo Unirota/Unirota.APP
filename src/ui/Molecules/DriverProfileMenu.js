@@ -52,7 +52,6 @@ export default class DriverProfileMenu extends Component {
         <BlueLine />
         <ScrollView
           style={{
-            maxHeight: 280,
             width: '100%'
           }}
         >

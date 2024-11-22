@@ -31,9 +31,9 @@ export default class ProfileHeader extends Component {
     return (
       <View>
         <View style={styles.container}>
-          <ProfileAvatar
+          {/* <ProfileAvatar
             data={require('../../../assets/images/user_avatar.png')}
-          />
+          /> */}
           <View style={styles.profileContentContainer}>
             <ProfileBadge />
             <ProfileName name={nome} />
