@@ -47,7 +47,7 @@ export default class App extends Component {
       )
     }
 
-    let initialRoute = isAuthorized ? 'GroupDataPage' : "LoginPage"
+    let initialRoute = isAuthorized ? 'HomePage' : "LoginPage"
     return (
       <FontProvider>
         <NavigationContainer>
@@ -140,11 +140,6 @@ export default class App extends Component {
             <Stack.Screen
               name="SendInvitePage"
               component={SendInvitePage}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="RegisterPage"
-              component={RegisterPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

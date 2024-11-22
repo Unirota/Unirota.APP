@@ -2,7 +2,9 @@ import { StyleSheet } from 'react-native'
 
 export const FaqStyles = StyleSheet.create({
   mainContainer: {
-    height: '100%',
+    height: '60%',
+    flex: 1,
+    position: 'relative',
   },
   groupContainer: {
     paddingHorizontal: 16,
@@ -57,5 +59,12 @@ export const FaqStyles = StyleSheet.create({
     color: 'white',
     fontSize: 14,
     marginTop: 4,
+  },
+  faqScrollView: {
+    flex: 1,
+  },
+  faqScrollViewContent: {
+    paddingHorizontal: 16,
+    paddingVertical: 4,
   },
 })
