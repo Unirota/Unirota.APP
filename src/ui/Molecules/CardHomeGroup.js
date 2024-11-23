@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, ScrollView } from 'react-native'
 import CardHomeGroupStyle from '../../styles/Molecules/CardHomeGroupStyle'
 import CardHomeGroupTitle from '../Atoms/CardHomeGroupTitle'
 import GroupService from '../../services/GroupService';

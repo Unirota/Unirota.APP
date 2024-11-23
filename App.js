@@ -2,6 +2,9 @@ import { Component } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { FontProvider } from './src/provider/FontProvider'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { FontProvider } from './src/provider/FontProvider'
 import AppService from './src/services/AppService'
 import LoginPage from './src/ui/Organisms/Login'
 import HomePage from './src/ui/Organisms/Home'
@@ -28,17 +31,22 @@ const Stack = createNativeStackNavigator()
 export default class App extends Component {
   constructor(props) {
     super(props)
+    super(props)
     this.state = {
       isAuthorized: null, // Começa nulo para indicar o loading
+    }
     }
   }
 
   async componentDidMount() {
     const isAuthorized = await AppService.AutomaticLogin()
     this.setState({ isAuthorized })
+    const isAuthorized = await AppService.AutomaticLogin()
+    this.setState({ isAuthorized })
   }
 
   render() {
+    const { isAuthorized } = this.state
     const { isAuthorized } = this.state
 
     if (isAuthorized === null) {
@@ -55,6 +63,7 @@ export default class App extends Component {
             <Stack.Screen
               name="LoginPage"
               component={LoginPage}
+              options={{ headerShown: false }}
               options={{ headerShown: false }}
             />
             <Stack.Screen
