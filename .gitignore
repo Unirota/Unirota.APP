@@ -9,7 +9,7 @@ dist/
 web-build/
 
 # Native
-*.orig.*
+*.orig.* 
 *.jks
 *.p8
 *.p12

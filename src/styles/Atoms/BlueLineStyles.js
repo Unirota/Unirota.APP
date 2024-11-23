@@ -11,7 +11,7 @@ export default StyleSheet.create({
     height: 2,
     backgroundColor: '#007DF0',
     marginHorizontal: 13,
-    marginTop: -55,
+    marginTop: -40,
     marginBottom: 28,
   },
 })

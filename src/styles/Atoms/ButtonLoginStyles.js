@@ -28,7 +28,33 @@ export default StyleSheet.create({
         fontWeight: '500',
         fontSize: 21,
     },
+    buttonRegister: {
+        alignSelf: 'center',
+        justifyContent: 'center', 
+        alignItems: 'center',    
+        width: 230,
+        height: 48,
+        borderRadius: 18,
+        marginTop: 60
+    },
+    buttonRegisterGroup: {     
+        width: 230,
+        height: 48,
+        borderRadius: 18,
+        marginTop: 60,
+        alignSelf: 'center',
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        marginBottom: 120
+    },
     ButtonDontHaveAccount:{
+        alignSelf: 'center',
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        marginTop: 20,
+        marginBottom: 120
+    },
+    ButtonHaveAccount:{
         alignSelf: 'center',
         justifyContent: 'center', 
         alignItems: 'center', 

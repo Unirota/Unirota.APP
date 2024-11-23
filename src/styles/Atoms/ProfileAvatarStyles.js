@@ -8,9 +8,5 @@ export default StyleSheet.create({
     backgroundColor: '#E1E1E1',
     overflow: 'hidden',
     marginLeft: 23,
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
+  }
 })

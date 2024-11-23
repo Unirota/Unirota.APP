@@ -1,5 +1,5 @@
 import axios from 'axios'
-let baseUrl = 'http://10.0.2.2:8080/api'
+let baseUrl = 'http://unirotaapiloadbalancer-291617151.us-east-2.elb.amazonaws.com:8080/api'
 
 let ApiUnirota = axios.create({
   baseURL: baseUrl,

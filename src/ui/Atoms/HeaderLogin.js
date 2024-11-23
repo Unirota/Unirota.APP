@@ -19,7 +19,7 @@ export default class HeaderLogin extends Component {
                 <Text style={[
                     HeaderLoginStyle.commonSubtitleLogin,
                     UnirotaTitleStyles.whiteText,
-                    UnirotaTitleStyles.subtitleLogin,]}>
+                    HeaderLoginStyle.subtitleLogin,]}>
                     Bem vindo de volta!
                 </Text>
 
